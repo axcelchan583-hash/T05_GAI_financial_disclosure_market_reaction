@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local secrets and machine-specific config
+.env
+.env.*
+
+# Raw/interim/generated research data
+data/raw/
+data/interim/
+data/processed/
+*.parquet
+*.feather
+*.dta
+*.sav
+
+# Generated pilot outputs
+results/
+
+# Logs and temporary files
+*.log
+*.tmp
+~$*
+
+# Copyrighted/local full-text PDFs should stay outside the repo
+*.pdf
