@@ -14,7 +14,7 @@ RISK_FEATURES = Path(
 )
 
 OUT_PARQUET = T05 / "data/interim/industry_binary_exposure_v0.parquet"
-OUT_MEMO = T05 / "docs/industry_binary_exposure_v0_20260510.md"
+OUT_MEMO = T05 / "docs/archive/design_history/industry_binary_exposure_v0_20260510.md"
 
 
 CSRC_L1_NAMES = {

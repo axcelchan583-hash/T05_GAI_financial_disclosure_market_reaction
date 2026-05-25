@@ -1,7 +1,7 @@
-# v8.1 实验世界：When Is Specific GenAI Disclosure Credible?
+# v8.1 When Is Specific GenAI Disclosure Credible?
 
-**日期**：2026-05-17  
-**目的**：只固定主实验。暂不讨论股价、分析师、监管、投稿包装或显著性。  
+**日期**：2026-05-17
+**目的**：只固定主实验。暂不讨论股价、分析师、监管、投稿包装或显著性。
 **一句话**：在 claim-level 上检验 specific disclosure 的可信度是否取决于 contemporaneous observable capability support。
 
 ---

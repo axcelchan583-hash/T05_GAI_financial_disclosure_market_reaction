@@ -45,8 +45,7 @@ The first tracking output should be:
 
 ```text
 results/annual_report_2025_pending_20260428.csv
-docs/annual_report_2025_pending_20260428.md
+docs/archive/annual_report/annual_report_2025_pending_20260428.md
 ```
 
 The CSV should be source-oriented, not cleaned beyond recognition. If source coverage is incomplete, keep a `source_status` column rather than silently filling values.
-

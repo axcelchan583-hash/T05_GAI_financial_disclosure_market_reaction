@@ -1,8 +1,8 @@
 # 研究设计 v8：Unsupported Specificity and GenAI Claim Verification
 
-**用途**：给 ChatGPT Pro 做审稿式 deep research / research-design audit  
-**日期**：2026-05-16  
-**核心变化**：从 v7 的 firm-quarter washing gap 转为真正的 claim-level verification；只保留一个主效应。  
+**用途**：给 ChatGPT Pro 做审稿式 deep research / research-design audit
+**日期**：2026-05-16
+**核心变化**：从 v7 的 firm-quarter washing gap 转为真正的 claim-level verification；只保留一个主效应。
 
 ---
 
@@ -525,4 +525,3 @@ Unsupported specificity is associated with lower claim-matched realization.
    - 主结果需要在什么表里成立才值得继续。
 
 请直接批判，不要为了鼓励而鼓励。
-

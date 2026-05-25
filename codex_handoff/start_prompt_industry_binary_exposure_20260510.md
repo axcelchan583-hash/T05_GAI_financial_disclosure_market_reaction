@@ -13,9 +13,9 @@ Owner: 主线 T05 GAI-assisted financial disclosure writing
 进 T05 后按顺序读：
 
 1. `T05_GAI_financial_disclosure_market_reaction/README.md`
-2. `docs/research_design_v0.md`
-3. `docs/variable_definitions_v0.md`
-4. `docs/did_xy_design_update_20260511.md`（最新设计，主 X = Post × PreRiskWritingBurden）
+2. `docs/archive/design_history/research_design_v0.md`
+3. `docs/archive/design_history/variable_definitions_v0.md`
+4. `docs/archive/design_history/did_xy_design_update_20260511.md`（历史设计，主 X = Post × PreRiskWritingBurden）
 
 不读 `annual_report_2025_*.md`，那是文本抓取计划，不影响本任务。
 
@@ -133,7 +133,7 @@ T05_GAI_financial_disclosure_market_reaction/data/interim/industry_binary_exposu
 输出：
 
 ```
-T05_GAI_financial_disclosure_market_reaction/docs/industry_binary_exposure_v0_20260510.md
+T05_GAI_financial_disclosure_market_reaction/docs/archive/design_history/industry_binary_exposure_v0_20260510.md
 ```
 
 包含：
@@ -153,7 +153,7 @@ T05_GAI_financial_disclosure_market_reaction/docs/industry_binary_exposure_v0_20
 2. **不要替换 `PreRiskWritingBurden_i` 作主 X**。主表保持连续。
 3. **不要发明行业层文本指标**——如果没有文本数据，flag 出来等下一步，不要硬编。
 4. **不要把制造业内部强行分类**。"制造业整体属于高风险披露"和"制造业整体属于低风险披露"都不成立。
-5. **不要修改 `docs/research_design_v0.md` 或 `did_xy_design_update_20260511.md`**。如有设计层面建议，写在 memo 末尾的 "open questions" 段落。
+5. **不要修改 `docs/archive/design_history/research_design_v0.md` 或 `docs/archive/design_history/did_xy_design_update_20260511.md`**。如有设计层面建议，写在 memo 末尾的 "open questions" 段落。
 
 ## 输出清单
 
@@ -162,7 +162,7 @@ T05_GAI_financial_disclosure_market_reaction/docs/industry_binary_exposure_v0_20
 ```
 T05_GAI_financial_disclosure_market_reaction/
 ├── data/interim/industry_binary_exposure_v0.parquet           # Step 3 输出
-├── docs/industry_binary_exposure_v0_20260510.md               # Step 5 memo
+├── docs/archive/design_history/industry_binary_exposure_v0_20260510.md # Step 5 memo
 └── scripts/build_industry_binary_exposure.py                  # 构造脚本
 ```
 

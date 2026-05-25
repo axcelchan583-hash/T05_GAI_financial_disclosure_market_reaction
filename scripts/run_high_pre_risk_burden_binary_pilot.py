@@ -25,7 +25,7 @@ OUT_EXPOSURE = T05 / "data/interim/high_pre_risk_burden_binary_v0.parquet"
 OUT_REG = T05 / "results/high_pre_risk_burden_did_pilot_v0.csv"
 OUT_EVENT = T05 / "results/high_pre_risk_burden_event_pilot_v0.csv"
 OUT_BALANCE = T05 / "results/high_pre_risk_burden_balance_v0.csv"
-OUT_MEMO = T05 / "docs/high_pre_risk_burden_binary_pilot_20260511.md"
+OUT_MEMO = T05 / "docs/archive/design_history/high_pre_risk_burden_binary_pilot_20260511.md"
 
 PRE_YEARS = list(range(2018, 2022))
 REG_YEARS = [2018, 2019, 2020, 2021, 2023, 2024]
