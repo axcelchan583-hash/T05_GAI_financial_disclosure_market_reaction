@@ -24,7 +24,57 @@ data/processed/
 *.sav
 
 # Generated pilot outputs
-results/
+results/*
+
+# Keep lightweight review-ready result tables in git.
+!results/high_pre_risk_burden_balance_v0.csv
+!results/high_pre_risk_burden_did_pilot_v0.csv
+!results/high_pre_risk_burden_event_pilot_v0.csv
+!results/v6_final_review_checks_20260525/
+results/v6_final_review_checks_20260525/*
+!results/v6_final_review_checks_20260525/*.csv
+!results/v6_identification_strengthening_20260524/
+results/v6_identification_strengthening_20260524/*
+!results/v6_identification_strengthening_20260524/*.csv
+!results/v6_external_ai_active_20260524/
+results/v6_external_ai_active_20260524/*
+!results/v6_external_ai_active_20260524/external_ai_evidence_first_dates_by_firm.csv
+!results/v6_external_ai_active_20260524/*summary*.csv
+!results/v6_external_ai_active_checks_20260524/
+results/v6_external_ai_active_checks_20260524/*
+!results/v6_external_ai_active_checks_20260524/*regressions.csv
+!results/v6_external_ai_active_checks_20260524/*summary.csv
+!results/v6_external_ai_active_ai_stripped_checks_20260524/
+results/v6_external_ai_active_ai_stripped_checks_20260524/*
+!results/v6_external_ai_active_ai_stripped_checks_20260524/*regressions.csv
+!results/v6_external_ai_active_ai_stripped_checks_20260524/*summary.csv
+!results/v6_ai_stripped_similarity_checks_20260524/
+results/v6_ai_stripped_similarity_checks_20260524/*
+!results/v6_ai_stripped_similarity_checks_20260524/*regressions.csv
+!results/v6_ai_stripped_similarity_checks_20260524/*summary.csv
+!results/v6_ai_stripped_similarity_checks_20260524/*overlap.csv
+!results/v6_announcement_clean_checks_20260524/
+results/v6_announcement_clean_checks_20260524/*
+!results/v6_announcement_clean_checks_20260524/announcement_stock_day_flags_summary.csv
+!results/v6_announcement_clean_checks_20260524/*regressions.csv
+!results/v6_announcement_clean_checks_20260524/*summary.csv
+!results/v6_announcement_clean_checks_20260524/*difference.csv
+!results/v6_announcement_clean_random_placebo_20260524/
+results/v6_announcement_clean_random_placebo_20260524/*
+!results/v6_announcement_clean_random_placebo_20260524/*.csv
+!results/v6_main_effect_full_checks_20260524/
+results/v6_main_effect_full_checks_20260524/*
+!results/v6_main_effect_full_checks_20260524/*.csv
+!results/v6_simple_main_effect_20260523/
+results/v6_simple_main_effect_20260523/*
+!results/v6_simple_main_effect_20260523/*.csv
+!results/v6_peer_firm_fe_checks_20260524/
+results/v6_peer_firm_fe_checks_20260524/*
+!results/v6_peer_firm_fe_checks_20260524/*.csv
+!results/v6_trading_response_checks_20260524/
+results/v6_trading_response_checks_20260524/*
+!results/v6_trading_response_checks_20260524/*regressions.csv
+!results/v6_trading_response_checks_20260524/*summary.csv
 
 # Logs and temporary files
 *.log

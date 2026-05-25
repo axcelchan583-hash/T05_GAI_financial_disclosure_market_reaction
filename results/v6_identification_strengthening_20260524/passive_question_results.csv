@@ -1,0 +1,7 @@
+model,outcome,term,coef,se,z,p,nobs,events,peer_firms,mean_y,subsample,ai_def,fe_spec
+passive_question_subsample,peer_car_0_p1_mm,spec_ai,-0.0018373006211275427,0.00096809024852629,-1.8978608904742498,0.057714409483651474,6972,1934,3225,0.0001618716323175051,question_genai,current_text_history,event_fe
+passive_question_subsample,peer_car_0_p1_mm,spec_ai,-0.0021233417702959225,0.0010823525699246862,-1.961783830239043,0.04978765702048249,6972,1934,3225,0.0001618716323175051,question_genai,current_text_history,event_fe_peer_industry_week_fe
+passive_question_subsample,peer_car_0_p1_mm,spec_ai,-0.0023841402424597505,0.0012461506054549485,-1.913203935401806,0.05572194991861279,4389,1198,2518,0.0011563863477965883,iip_quick_question_genai,current_text_history,event_fe
+passive_question_subsample,peer_car_0_p1_mm,spec_ai,-0.002411037892024147,0.0014284001128745285,-1.687928942523077,0.09142487001942401,4389,1198,2518,0.0011563863477965883,iip_quick_question_genai,current_text_history,event_fe_peer_industry_week_fe
+passive_question_subsample,peer_car_0_p1_mm,spec_ai,-0.002619947489222829,0.0020174816735416597,-1.29862269560226,0.19407344530985915,1711,482,1289,-0.0023441776520284566,not_question_genai,current_text_history,event_fe
+passive_question_subsample,peer_car_0_p1_mm,spec_ai,-0.0037198681311957998,0.0024154857712621325,-1.540008297896992,0.12355833078205136,1711,482,1289,-0.0023441776520284566,not_question_genai,current_text_history,event_fe_peer_industry_week_fe

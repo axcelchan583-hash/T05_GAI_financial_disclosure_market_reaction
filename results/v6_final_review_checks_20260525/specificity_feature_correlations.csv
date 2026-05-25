@@ -1,0 +1,10 @@
+feature,corr_with_specificity
+specificity,1.0
+answer_len,-0.11014713758590487
+question_len,0.025320518154663955
+total_genai_mentions,-0.005418118431653071
+total_genai_span_tokens,-0.04713771205950017
+source_count,-0.004558015510527513
+answer_level_events,-0.013697438964108967
+answer_digit_count,0.18724594121571453
+component_count,-0.022252213752157746
