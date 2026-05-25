@@ -51,6 +51,54 @@ docs/empirical_runs/53_v6_final_review_checks_20260525.md
 results/v6_final_review_checks_20260525
 ```
 
+2026-05-25 又补了两项针对审稿人最可能质疑的核心稳健性：
+
+```text
+docs/empirical_runs/54_v6_focal_good_news_pretrend_checks_20260525.md
+results/v6_focal_good_news_pretrend_checks_20260525
+```
+
+结论：排除“焦点公司自身利好程度”混杂、以及净化 peer pre-trend 后，`Specificity_z × AIActivePeer` 仍然稳定。
+
+```text
+Task 1: 加入焦点公司自身 FocalCAR[0,+1] 及 FocalCAR[0,+1] × AIActive。
+
+Top5 / announcement clean / CAR[0,+1] /
+event FE + peer industry-week FE /
+PeerCAR[-10,-2] + PeerCAR[-20,-2] controls:
+
+text-history AIActive:
+    baseline coef = -0.002275, p = 0.027
+    + FocalCAR coef = -0.002275, p = 0.027
+    + FocalCAR × AIActive coef = -0.002283, p = 0.027
+
+external ext_any:
+    baseline coef = -0.002303, p = 0.020
+    + FocalCAR coef = -0.002303, p = 0.020
+    + FocalCAR × AIActive coef = -0.002307, p = 0.020
+
+注意：FocalCAR[0,+1] 是 event-level 变量，在 event FE 下会被吸收；
+真正有识别含义的是 FocalCAR[0,+1] × AIActive。
+```
+
+```text
+Task 2: 用 PeerCAR[-10,-2] 净化 PeerCAR[0,+1] 后重跑。
+
+text-history AIActive:
+    residualized Y baseline coef = -0.002274, p = 0.027
+    residualized Y + FocalCAR × AIActive coef = -0.002281, p = 0.026
+
+external ext_any:
+    residualized Y baseline coef = -0.002295, p = 0.021
+    residualized Y + FocalCAR × AIActive coef = -0.002300, p = 0.020
+
+样本量：
+    N = 7,805
+    events = 2,177
+    peer firms = 3,345
+    clustering = event_id × peer_code
+```
+
 结论很清楚：资本市场主效应通过当前 go/no-go 门槛，但披露扩散机制在更严格口径下不显著。
 
 ```text

@@ -1,55 +1,63 @@
 # Docs Index
 
-更新时间：2026-05-24
+更新时间：2026-05-25
 
-这个目录已经按用途整理。后续默认先看 `current/`；旧设计、降级路线和早期版本都放进 `archive/` 或保留为历史诊断，避免继续混在当前主线里。
+这个目录已经按用途整理。后续默认先看 `design/`；旧设计、降级路线和早期版本都放进 `archive/` 或保留为历史诊断，避免继续混在当前主线里。
 
 ## 先看这里
 
-当前主线已经从 v5.1 调整为 v6：
+当前主线是 v6 capital-market peer revaluation：
 
 ```text
 主问题：
-    GenAI 披露是否引发产品市场竞品的资本市场重估？
+    更具体的 GenAI 披露是否被市场解读为竞争威胁信号，
+    从而使 AI-active 的 Top5 产品市场竞品出现更负短窗重估？
 
 主 Y：
-    peer signed CAR / abnormal turnover / abnormal volume
+    peer signed market-model CAR[0,+1]
 
 机制 Y：
     peer GenAI disclosure response within 60 / 90 / 180 days
+    但严格口径下不显著，只能做描述性后续反应
 
 验证 Y：
     CAC 生成式 AI 服务备案 / 深度合成算法备案
+    当前不作为主 Y
 ```
 
 最重要的当前文件：
 
-- `current/41_v6_market_reaction_main_peer_diffusion_mechanism_20260523.md`
-- `empirical_runs/38_csmar_genai_event_library_smoke_20260523.md`
-- `empirical_runs/39_csmar_v5_1_response_smoke_20260523.md`
-- `empirical_runs/40_csmar_peer_diffusion_main_effect_20260523.md`
-- `empirical_runs/42_v6_csmar_peer_market_reaction_smoke_20260523.md`
-- `empirical_runs/43_v6_simple_main_effect_20260523.md`
-- `empirical_runs/44_v6_market_model_and_placebo_20260524.md`
-- `empirical_runs/45_v6_main_effect_full_checks_20260524.md`
-- `current/31_v4_experimental_design_ai_active_peer_20260522.md`
-- `current/32_v4_go_no_go_diagnostics_20260522.md`
+- `design/00_REVIEW_PACKAGE_README_20260525.md`
+- `design/01_current_research_design_20260525.md`
+- `design/02_paper_outline_20260525.md`
+- `design/03_chatgpt_pro_review_prompt_20260525.md`
+- `design/04_chatgpt_pro_feedback_digest_20260525.md`
+- `empirical_runs/53_v6_final_review_checks_20260525.md`
+- `empirical_runs/54_v6_focal_good_news_pretrend_checks_20260525.md`
+- `empirical_runs/52_v6_identification_strengthening_checks_20260524.md`
+- `empirical_runs/50_v6_external_ai_active_on_ai_stripped_similarity_20260524.md`
 
 如果只给网页版 / Claude 上传材料，优先上传：
 
-1. `current/41_v6_market_reaction_main_peer_diffusion_mechanism_20260523.md`
-2. `empirical_runs/38_csmar_genai_event_library_smoke_20260523.md`
-3. `empirical_runs/44_v6_market_model_and_placebo_20260524.md`
-4. `empirical_runs/45_v6_main_effect_full_checks_20260524.md`
-5. `empirical_runs/43_v6_simple_main_effect_20260523.md`
-6. `empirical_runs/42_v6_csmar_peer_market_reaction_smoke_20260523.md`
-7. `empirical_runs/40_csmar_peer_diffusion_main_effect_20260523.md`
-8. `current/32_v4_go_no_go_diagnostics_20260522.md`
-9. `empirical_runs/39_csmar_v5_1_response_smoke_20260523.md`
+1. `../claude_project/3/01_PROJECT_BRIEF_EN.md`
+2. `../claude_project/3/02_DEEP_REVIEW_PROMPT_EN.md`
+3. `../claude_project/3/source_docs/03_current_research_design_20260525.md`
+4. `../claude_project/3/source_docs/07_final_review_checks_20260525.md`
+5. `../claude_project/3/source_docs/08_focal_good_news_pretrend_checks_20260525.md`
+6. `../claude_project/3/results_csv/headline.csv`
+7. `../claude_project/3/results_csv/task1_focal_good_news_controls.csv`
+8. `../claude_project/3/results_csv/task2_pretrend_residualized_y.csv`
+
+也可以直接上传：
+
+```text
+../claude_project/3/T05_claude_chatgpt_review_package_20260525.zip
+```
 
 ## 目录结构
 
 - `current/`: 当前仍在推进的研究设计、数据执行计划、go/no-go 诊断和文献锚点。
+- `design/`: 2026-05-25 成稿审阅包，当前最推荐从这里开始看。
 - `empirical_runs/`: 已完成的试跑记录。保留结果与失败路径，但不作为当前主线入口。
 - `prompts/`: 给 ChatGPT Pro / Claude / 深度研究模式使用的 prompt。
 - `archive/design_history/`: v0-v3、v8-v10 以及已经降级的历史路线。
@@ -58,6 +66,8 @@
 - `选题/`: 旧路径兼容入口，只保留 README 指向新目录。
 
 ## Current
+
+当前主线入口已移到 `design/`。`current/` 中的文件主要用于复盘路线演化。
 
 - `41_v6_market_reaction_main_peer_diffusion_mechanism_20260523.md`: 当前主线；主 Y 回到竞品资本市场反应，竞品 GenAI 披露扩散降级为机制，CAC 备案作为外部验证。
 - `37_v5_1_layered_iip_cac_disclosure_response_smoke_20260523.md`: v5.1 历史设计；原本以 IIP->IIP 竞品披露响应为主 Y。现在已降级为机制思路。
@@ -76,6 +86,15 @@
 
 ## Empirical Runs
 
+- `53_v6_final_review_checks_20260525.md`: 当前最重要的最终复核；包括 headline 主结果、specificity validation、产品市场距离梯度、lead/lag、external AIActive breakdown、严格机制检验。
+- `54_v6_focal_good_news_pretrend_checks_20260525.md`: 最新核心稳健性；加入 FocalCAR 与 FocalCAR × AIActive，并用 PeerCAR[-10,-2] 净化 Y 后重跑。
+- `52_v6_identification_strengthening_checks_20260524.md`: 识别强化；formal DDD、pre-window placebo、focal CAR sign、question-triggered subsample、non-GenAI pseudo-event。
+- `51_v6_peer_firm_fe_identification_check_20260524.md`: peer firm FE 检查。
+- `50_v6_external_ai_active_on_ai_stripped_similarity_20260524.md`: external AIActive 接到 AI-word-stripped 产品相似度后的稳健性。
+- `49_v6_external_ai_active_peer_checks_20260524.md`: external AIActivePeer 第一轮检查。
+- `48_v6_announcement_clean_random_placebo_20260524.md`: 公告清洗后的随机同业 placebo。
+- `47_v6_ai_stripped_similarity_checks_20260524.md`: 剔除 AI 词后的产品相似度稳健性。
+- `46_v6_announcement_clean_and_trading_response_20260524.md`: 公告清洗与交易反应检查。
 - `38_csmar_genai_event_library_smoke_20260523.md`: CSMAR 投资者互动 + 调研问答 GenAI 事件库构造记录；合并后 40,691 条 answer-level、23,454 个 firm-day 事件。
 - `39_csmar_v5_1_response_smoke_20260523.md`: v5.1 的 `Specificity × Similarity -> peer disclosure response` 试跑；核心交互不显著，支持降级。
 - `40_csmar_peer_diffusion_main_effect_20260523.md`: 产品市场同伴 GenAI 披露扩散试跑；Top10 60/90/180 天有正向信号，适合作为机制。

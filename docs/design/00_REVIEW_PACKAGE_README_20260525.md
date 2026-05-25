@@ -18,6 +18,7 @@ The current paper should be reviewed as a **capital-market revaluation paper**, 
 | `02_paper_outline_20260525.md` | Proposed manuscript outline: contribution, hypotheses, table plan, robustness plan, and writing boundary. |
 | `03_chatgpt_pro_review_prompt_20260525.md` | English prompt that can be pasted into ChatGPT Pro with the design files attached. |
 | `04_chatgpt_pro_feedback_digest_20260525.md` | Digest of ChatGPT Pro's feedback and the revised execution priorities. |
+| `../empirical_runs/54_v6_focal_good_news_pretrend_checks_20260525.md` | Focused robustness checks for focal-firm good-news controls and pre-trend-adjusted peer CAR. |
 
 ## Current One-Sentence Design
 
@@ -66,6 +67,23 @@ Important support:
 Important weakness:
 
 - text-history AIActivePeer has a negative pre-window pattern, so main or core robustness tables must include pre-window peer CAR controls.
+
+Latest focused robustness:
+
+```text
+Top5 / first focal event / announcement-cleaned / PeerCAR[0,+1]
+event FE + peer industry-week FE
+two-way clustering by event_id and peer_code
+N = 7,805; events = 2,177; peer firms = 3,345
+
+Adding FocalCAR[0,+1] and FocalCAR[0,+1] × AIActive:
+    text-history: coef remains about -0.00228, p = 0.027
+    ext_any:      coef remains about -0.00231, p = 0.020
+
+Residualizing PeerCAR[0,+1] on PeerCAR[-10,-2]:
+    text-history: coef remains about -0.00228, p = 0.026-0.027
+    ext_any:      coef remains about -0.00230, p = 0.020-0.021
+```
 
 ## Revised Execution Priorities After External Review
 

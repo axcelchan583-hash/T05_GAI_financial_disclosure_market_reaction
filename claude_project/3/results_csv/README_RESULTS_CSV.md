@@ -4,6 +4,10 @@ These CSV files are from:
 
 `results/v6_final_review_checks_20260525`
 
+and the focused robustness folder:
+
+`results/v6_focal_good_news_pretrend_checks_20260525`
+
 They correspond to the 2026-05-25 final go/no-go checks.
 
 ## Files
@@ -16,6 +20,8 @@ They correspond to the 2026-05-25 final go/no-go checks.
 - `lead_lag.csv`: pre-window, event-window, and post-window CAR checks for text-history AIActive and external `ext_any`.
 - `external_breakdown.csv`: component-by-component external AIActive checks, including CAC, AI patent grants, AI hiring, and composite measures.
 - `mechanism.csv`: stricter peer-disclosure diffusion mechanism tests. These are null and should not be treated as core mechanism evidence.
+- `task1_focal_good_news_controls.csv`: robustness adding focal-firm own event-window CAR and `FocalCAR[0,+1] × AIActivePeer`.
+- `task2_pretrend_residualized_y.csv`: robustness using an outcome residualized on `PeerCAR[-10,-2]`.
 
 ## Main Rows To Inspect
 
@@ -31,4 +37,11 @@ For the current safest AIActive validation, inspect:
 
 ```text
 ai_def == "ext_any"
+```
+
+For the focal-good-news and pre-trend checks, inspect:
+
+```text
+task1_focal_good_news_controls.csv
+task2_pretrend_residualized_y.csv
 ```

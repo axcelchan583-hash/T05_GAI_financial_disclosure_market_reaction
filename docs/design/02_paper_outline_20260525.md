@@ -250,7 +250,8 @@ Event fixed effects absorb all focal-event-level shocks. The estimate is identif
 2. Event FE and peer industry-week FE.
 3. Pre-window peer CAR controls included in core columns.
 4. Text-history AIActivePeer and external `ext_any` shown side by side.
-5. Product-market proximity gradient and placebo peers.
+5. Focal-firm good-news controls and pre-trend-adjusted outcome.
+6. Product-market proximity gradient and placebo peers.
 
 ## 6. Main Results
 
@@ -279,6 +280,39 @@ Columns:
 3. event FE + peer industry-week FE + pre-window peer CAR controls;
 4. same headline controls with external `ext_any` AIActivePeer;
 5. Top10 robustness with the same headline controls.
+
+### Table 2B: Focal Good-News and Pre-Trend Robustness
+
+Purpose:
+
+```text
+show that Specificity_z × AIActivePeer is not merely capturing
+focal-firm own good news or continuation of peer pre-window returns.
+```
+
+Columns:
+
+1. baseline with `PeerCAR[-10,-2]` and `PeerCAR[-20,-2]`;
+2. add `FocalCAR[0,+1]`;
+3. add `FocalCAR[0,+1] × AIActivePeer`;
+4. residualize `PeerCAR[0,+1]` on `PeerCAR[-10,-2]`;
+5. residualized outcome plus `FocalCAR[0,+1] × AIActivePeer`.
+
+Current focused robustness result:
+
+```text
+Top5 / announcement-cleaned / event FE + peer industry-week FE:
+
+text-history:
+    baseline coef = -0.002275, p = 0.027
+    + FocalCAR × AIActive coef = -0.002283, p = 0.027
+    residualized Y + FocalCAR × AIActive coef = -0.002281, p = 0.026
+
+external ext_any:
+    baseline coef = -0.002303, p = 0.020
+    + FocalCAR × AIActive coef = -0.002307, p = 0.020
+    residualized Y + FocalCAR × AIActive coef = -0.002300, p = 0.020
+```
 
 ### Table 3: Specificity Validation
 
@@ -360,7 +394,7 @@ Y:
 peer follow-up GenAI disclosure within 60 / 90 / 180 days
 ```
 
-Current result:
+Early smoke-test result:
 
 ```text
 Top10 first-event sample:
@@ -370,9 +404,16 @@ Top10 first-event sample:
 pre-window placebo is null
 ```
 
+Stricter 2026-05-25 result:
+
+```text
+After adding focal-event FE and peer prior 365-day GenAI disclosure-rate controls,
+Top5 / Top10 60d, 90d, and 180d response tests are not significant.
+```
+
 Interpretation:
 
-Close peers appear to respond by entering the GenAI disclosure conversation.
+Peer disclosure diffusion should be kept, at most, as descriptive follow-up evidence. It should not carry the paper's mechanism claim.
 
 ### Boundary: Focal CAR Sign Decomposition
 
@@ -405,7 +446,9 @@ Required robustness:
 11. Top10 peer sample;
 12. alternative CAR windows;
 13. specificity validation against length, AI keyword frequency, sentiment, and readability;
-14. product-market proximity gradient.
+14. product-market proximity gradient;
+15. focal-firm good-news controls: `FocalCAR[0,+1]` and `FocalCAR[0,+1] × AIActivePeer`;
+16. pre-trend-adjusted outcome residualized on `PeerCAR[-10,-2]`.
 
 ## 9. Discussion
 
@@ -414,7 +457,7 @@ Discuss:
 - why AI-active peers are negatively revalued;
 - why the effect is not generic industry hype;
 - why the result should be interpreted as capital-market reassessment rather than proven real business stealing;
-- how peer disclosure diffusion suggests follow-up strategic response.
+- why peer disclosure diffusion is only weak/descriptive rather than a confirmed strategic-response mechanism.
 
 ## 10. Conclusion
 
@@ -452,4 +495,4 @@ Write:
 - "specific GenAI disclosures are interpreted as competitive-risk signals";
 - "negative revaluation is concentrated among AI-active product-market peers";
 - "the result is not reproduced by non-GenAI pseudo-events, low-similarity peers, or random peers";
-- "the evidence is robust to pre-window peer CAR controls and external AI-active validation."
+- "the evidence is robust to pre-window peer CAR controls, focal-firm good-news controls, pre-trend-adjusted outcomes, and external AI-active validation."

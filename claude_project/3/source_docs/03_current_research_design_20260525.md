@@ -232,6 +232,58 @@ The headline result now survives the pre-window CAR concern in both the disclosu
 The paper should show text-history and ext_any side by side rather than relying on only one definition.
 ```
 
+## Focused Robustness Added After Final Review
+
+Two additional checks were run to address the two most direct referee concerns: whether the result is only capturing focal-firm good news, and whether it is driven by peer pre-trends.
+
+Sample and inference:
+
+```text
+Top5 product-market peers
+first focal GenAI event
+announcement-cleaned sample
+PeerCAR[0,+1]
+event FE + peer industry-week FE
+two-way clustering by event_id and peer_code
+N = 7,805
+events = 2,177
+peer firms = 3,345
+```
+
+### Focal-Firm Good-News Controls
+
+The baseline already includes `PeerCAR[-10,-2]` and `PeerCAR[-20,-2]`. The robustness adds `FocalCAR[0,+1]` and then `FocalCAR[0,+1] × AIActivePeer`.
+
+| AIActive definition | Baseline coef | Baseline p | + FocalCAR coef | p | + FocalCAR × AIActive coef | p |
+|---|---:|---:|---:|---:|---:|---:|
+| text-history | -0.002275 | 0.027 | -0.002275 | 0.027 | -0.002283 | 0.027 |
+| external `ext_any` | -0.002303 | 0.020 | -0.002303 | 0.020 | -0.002307 | 0.020 |
+
+Interpretation:
+
+```text
+FocalCAR[0,+1] is event-level and is absorbed by event fixed effects.
+The informative added control is FocalCAR[0,+1] × AIActivePeer.
+The coefficient on Specificity_z × AIActivePeer is essentially unchanged.
+```
+
+### Pre-Trend-Adjusted Outcome
+
+The outcome is residualized by first regressing `PeerCAR[0,+1]` on `PeerCAR[-10,-2]`. The reported coefficient remains `Specificity_z × AIActivePeer`.
+
+| AIActive definition | Residualized-Y baseline coef | p | Residualized-Y + FocalCAR × AIActive coef | p |
+|---|---:|---:|---:|---:|
+| text-history | -0.002274 | 0.027 | -0.002281 | 0.026 |
+| external `ext_any` | -0.002295 | 0.021 | -0.002300 | 0.020 |
+
+Reading:
+
+```text
+The external ext_any result remains significant after absorbing PeerCAR[-10,-2].
+The text-history result does not materially decay in this focused specification.
+This strengthens the interpretation that the event-window result is not only a continuation of the measured pre-window trend.
+```
+
 Main result:
 
 | Sample | FE | Coef on `Specificity_z × AIActivePeer` | p-value |

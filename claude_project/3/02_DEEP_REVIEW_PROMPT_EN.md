@@ -11,6 +11,7 @@ Please do not treat this as a strong causal paper. The intended paper is a capit
 1. `01_PROJECT_BRIEF_EN.md`
 2. `source_docs/03_current_research_design_20260525.md`
 3. `source_docs/07_final_review_checks_20260525.md`
+4. `source_docs/08_focal_good_news_pretrend_checks_20260525.md`
 
 Use the CSV files only if you need to inspect the exact rows behind the summarized results.
 
@@ -82,6 +83,8 @@ Evaluate the identification strategy:
 - product-market proximity gradient;
 - low-similarity and random peer placebos;
 - non-GenAI pseudo-event placebo.
+- focal-firm good-news controls;
+- pre-trend-adjusted outcome residualized on `PeerCAR[-10,-2]`.
 
 Which remaining threat is most damaging?
 

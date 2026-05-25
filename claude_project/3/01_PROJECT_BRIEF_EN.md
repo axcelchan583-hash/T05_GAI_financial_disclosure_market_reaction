@@ -110,6 +110,42 @@ Under text-history AIActive, the full observable text-controls specification rem
 coef = -0.001824, p = 0.071
 ```
 
+## Focused Good-News and Pre-Trend Robustness
+
+The latest focused robustness checks use the current headline sample and specification:
+
+```text
+Top5 product-market peers
+first focal GenAI event
+announcement-cleaned sample
+PeerCAR[0,+1]
+event FE + peer industry-week FE
+two-way clustering by event_id and peer_code
+N = 7,805
+events = 2,177
+peer firms = 3,345
+```
+
+### Focal-Firm Own Good-News Controls
+
+The coefficient on `Specificity_z × AIActivePeer` remains stable after adding `FocalCAR[0,+1]` and `FocalCAR[0,+1] × AIActivePeer`:
+
+| AIActive definition | Baseline coef | Baseline p | + FocalCAR × AIActive coef | p |
+|---|---:|---:|---:|---:|
+| current text-history AIActive | -0.002275 | 0.027 | -0.002283 | 0.027 |
+| external `ext_any` | -0.002303 | 0.020 | -0.002307 | 0.020 |
+
+`FocalCAR[0,+1]` itself is event-level and therefore absorbed by event fixed effects. The relevant incremental control is the interaction with AIActivePeer.
+
+### Pre-Trend-Adjusted Outcome
+
+The result also survives when `PeerCAR[0,+1]` is residualized on `PeerCAR[-10,-2]`:
+
+| AIActive definition | Residualized-Y baseline coef | p | Residualized-Y + FocalCAR × AIActive coef | p |
+|---|---:|---:|---:|---:|
+| current text-history AIActive | -0.002274 | 0.027 | -0.002281 | 0.026 |
+| external `ext_any` | -0.002295 | 0.021 | -0.002300 | 0.020 |
+
 ## Product-Market Proximity Evidence
 
 The result is concentrated in the closest product-market peers:

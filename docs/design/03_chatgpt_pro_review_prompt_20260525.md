@@ -20,10 +20,11 @@ Focus on:
 4. whether the interpretation should be "competitive-risk signal," "business stealing," "category validation," or something else;
 5. whether the current result should be framed as a main effect, a heterogeneity result, or a mechanism;
 6. whether the current placebo battery is sufficient;
-7. what additional tests would most increase publishability;
-8. what results would be fatal to the design;
-9. what the paper should avoid claiming;
-10. which journals are realistic targets.
+7. whether the focal-firm good-news and pre-trend checks are enough to address those two threats;
+8. what additional tests would most increase publishability;
+9. what results would be fatal to the design;
+10. what the paper should avoid claiming;
+11. which journals are realistic targets.
 
 ## Current Design Summary
 
@@ -148,6 +149,23 @@ external ext_any, strong FE:
 coef = -0.002109, p = 0.024
 ```
 
+Focused focal-good-news and pre-trend robustness:
+
+```text
+Top5 / announcement-cleaned / PeerCAR[0,+1]
+event FE + peer industry-week FE
+two-way clustering by event_id and peer_code
+N = 7,805; events = 2,177; peer firms = 3,345
+
+Add FocalCAR[0,+1] and FocalCAR[0,+1] × AIActive:
+text-history coef = -0.002283, p = 0.027
+external ext_any coef = -0.002307, p = 0.020
+
+Residualize PeerCAR[0,+1] on PeerCAR[-10,-2]:
+text-history + FocalCAR × AIActive coef = -0.002281, p = 0.026
+external ext_any + FocalCAR × AIActive coef = -0.002300, p = 0.020
+```
+
 Focal CAR sign decomposition:
 
 ```text
@@ -162,7 +180,7 @@ This weakens a simple business-stealing interpretation.
 
 Peer GenAI disclosure diffusion is treated as a mechanism, not the main outcome.
 
-Current CSMAR result:
+Early CSMAR smoke-test result:
 
 ```text
 first focal event per firm, Top10:
@@ -172,6 +190,22 @@ first focal event per firm, Top10:
 
 pre-window placebo is not significant.
 ```
+
+However, the stricter 2026-05-25 version is null after adding focal-event FE and peer prior 365-day GenAI disclosure-rate controls:
+
+```text
+Top5:
+60d p = 0.935
+90d p = 0.622
+180d p = 0.886
+
+Top10:
+60d p = 0.317
+90d p = 0.657
+180d p = 0.555
+```
+
+Therefore peer disclosure diffusion should be reviewed as weak/descriptive follow-up evidence, not a strong mechanism.
 
 ## Please Produce
 

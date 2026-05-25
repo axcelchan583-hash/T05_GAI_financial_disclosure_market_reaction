@@ -72,6 +72,18 @@ as peer pre-window controls.
 
 Do not hide this in the appendix.
 
+Update after focused robustness:
+
+```text
+Using Top5 / announcement-cleaned / event FE + peer industry-week FE,
+and two-way clustering by event_id and peer_code,
+the core coefficient remains significant after residualizing PeerCAR[0,+1]
+on PeerCAR[-10,-2]:
+
+text-history: coef about -0.00228, p = 0.026-0.027
+ext_any:      coef about -0.00230, p = 0.020-0.021
+```
+
 ### 2. AIActivePeer definition
 
 Text-history AIActivePeer is theoretically useful but endogenous to disclosure activity and market attention.
@@ -151,12 +163,13 @@ causal effect of disclosure timing
 | Priority | Table | Purpose |
 |---:|---|---|
 | 1 | Main peer-CAR table with pre-window controls | Make the headline result survive the main critique. |
-| 2 | Specificity validation table | Prove `Specificity_z` is not length / AI word count / sentiment. |
-| 3 | Product-market proximity gradient | Show Top5 effect is economically about close competitors. |
-| 4 | External AIActive table | Reduce same-text-system concern. |
-| 5 | Non-GenAI pseudo-event and question-triggered tests | Defend against generic IIP specificity and timing-selection critiques. |
-| 6 | Peer GenAI disclosure diffusion | Mechanism / response, not main Y. |
-| 7 | Boundary tests | Focal CAR sign, category validation versus competitive-risk. |
+| 2 | Focal good-news and pre-trend robustness | Show the result is not just focal-firm own good news or peer pre-window drift. |
+| 3 | Specificity validation table | Prove `Specificity_z` is not length / AI word count / sentiment. |
+| 4 | Product-market proximity gradient | Show Top5 effect is economically about close competitors. |
+| 5 | External AIActive table | Reduce same-text-system concern. |
+| 6 | Non-GenAI pseudo-event and question-triggered tests | Defend against generic IIP specificity and timing-selection critiques. |
+| 7 | Peer GenAI disclosure diffusion | Descriptive follow-up only, not main mechanism. |
+| 8 | Boundary tests | Focal CAR sign, category validation versus competitive-risk. |
 
 ## Go / No-Go Threshold
 
