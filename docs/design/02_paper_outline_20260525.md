@@ -2,6 +2,17 @@
 
 Date: 2026-05-25
 
+Update note:
+
+```text
+This outline has been superseded for current writing by:
+docs/design/08_paper_outline_current_20260527.md
+
+The 2026-05-27 version incorporates the disclosure-type horse-race,
+AI supply-chain boundary result, event-time lead/lag figures,
+and product-market peer-validity diagnostics.
+```
+
 Working title:
 
 > Specific Generative AI Disclosure and Product-Market Peer Revaluation: Evidence from Chinese Listed Firms
@@ -16,8 +27,9 @@ Suggested structure:
 2. State the setting: Chinese listed firms' GenAI / large-model / AIGC disclosures in investor-interaction and related communication channels.
 3. State the design: focal disclosure event × product-market peer panel, Top5 product peers, peer CAR `[0,+1]`, event fixed effects, peer industry-week fixed effects, two-way clustered standard errors.
 4. State the main finding as a conditional peer effect: within the same focal event, more specific GenAI disclosures are associated with more negative CAR among pre-event AI-active product-market peers relative to non-AI-active peers.
-5. State identification support: announcement cleaning, low-similarity and random peer placebos, AI-word-stripped similarity, external AI-active validation, pre-window CAR controls, non-GenAI pseudo-events.
-6. State interpretation: capital markets treat specific GenAI disclosures as competitive-risk signals.
+5. State that the main AIActive definition uses external `ext_any`; text-history AIActive is robustness.
+6. State identification support: announcement cleaning, low-similarity and random peer placebos, AI-word-stripped similarity, external AI-active validation, pre-window CAR controls, non-GenAI pseudo-events.
+7. State interpretation: capital markets treat specific GenAI disclosures as competitive-risk signals.
 
 ## 1. Introduction
 
@@ -178,21 +190,20 @@ Describe:
 Main:
 
 ```text
-prior GenAI disclosure before t-5
+external ext_any = prior CAC filing OR prior broad-AI patent grant OR prior broad-AI hiring
 ```
 
-External validation:
+Robustness:
 
 ```text
-prior CAC filing
-prior AI patent grant
-prior broad-AI hiring in prior 365 days
+prior GenAI disclosure before t-5
 ```
 
 Core table policy:
 
 ```text
-Report text-history AIActivePeer and external ext_any side by side.
+Use ext_any as the headline AIActive definition.
+Report text-history AIActivePeer as a core robustness / extension.
 ```
 
 ### 4.5 Market Outcomes
@@ -275,11 +286,11 @@ Top5, first focal event, announcement-cleaned, PeerCAR[0,+1].
 
 Columns:
 
-1. event FE;
-2. event FE + peer industry-week FE;
-3. event FE + peer industry-week FE + pre-window peer CAR controls;
-4. same headline controls with external `ext_any` AIActivePeer;
-5. Top10 robustness with the same headline controls.
+1. headline `ext_any`, event FE + peer industry-week FE + pre-window peer CAR controls;
+2. `current_text_history` robustness with the same controls;
+3. Top10 robustness with `ext_any`;
+4. Top10 robustness with `current_text_history`;
+5. optional no-prewindow column only if needed to show the incremental effect of controls.
 
 ### Table 2B: Focal Good-News and Pre-Trend Robustness
 

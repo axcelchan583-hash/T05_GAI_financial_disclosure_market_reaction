@@ -163,16 +163,16 @@ Recommended hierarchy:
 
 ```text
 Main:
-    current_text_history, because it is more closely tied to GenAI disclosure history.
+    ext_any, because it uses CAC / patents / hiring and reduces same-text-system concerns.
 
-Core parallel validation:
-    ext_any, because it relies on CAC / patents / hiring and reduces same-text-system concerns.
+Core robustness / extension:
+    current_text_history, because it is more closely tied to GenAI disclosure history but has a stronger pre-window concern.
 
 Expanded validation:
     ext_plus_history, but clearly state that it reintroduces historical disclosure text.
 ```
 
-The paper should not let text-history AIActivePeer be the only main definition. In the core table sequence, text-history AIActivePeer and external `ext_any` should be shown side by side.
+The design-freeze decision is to use external `ext_any` as the headline AIActive definition and text-history AIActivePeer as core robustness / extension.
 
 ## Baseline Specification
 
@@ -229,7 +229,7 @@ Reading:
 
 ```text
 The headline result now survives the pre-window CAR concern in both the disclosure-history AIActive definition and the external AIActive definition.
-The paper should show text-history and ext_any side by side rather than relying on only one definition.
+The frozen paper design uses ext_any as the headline AIActive definition and text-history as robustness / extension.
 ```
 
 ## Focused Robustness Added After Final Review

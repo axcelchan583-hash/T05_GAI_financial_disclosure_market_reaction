@@ -45,3 +45,16 @@ For the focal-good-news and pre-trend checks, inspect:
 task1_focal_good_news_controls.csv
 task2_pretrend_residualized_y.csv
 ```
+
+The specificity validation sample is not in this folder. It is in:
+
+```text
+validation_sample/
+```
+
+Relevant files:
+
+- `specificity_validation_sample_300_20260525.csv`
+- `specificity_validation_coding_template_300_20260525.csv`
+- `specificity_validation_llm_input_300_20260525.jsonl`
+- `specificity_validation_sample_summary_20260525.csv`

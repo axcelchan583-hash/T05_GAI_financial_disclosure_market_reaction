@@ -1,6 +1,6 @@
 # Docs Index
 
-更新时间：2026-05-25
+更新时间：2026-05-27
 
 这个目录已经按用途整理。后续默认先看 `design/`；旧设计、降级路线和早期版本都放进 `archive/` 或保留为历史诊断，避免继续混在当前主线里。
 
@@ -32,8 +32,17 @@
 - `design/02_paper_outline_20260525.md`
 - `design/03_chatgpt_pro_review_prompt_20260525.md`
 - `design/04_chatgpt_pro_feedback_digest_20260525.md`
+- `design/05_design_freeze_20260525.md`
+- `design/06_specificity_validation_codebook_20260525.md`
+- `design/07_specificity_validation_execution_plan_20260525.md`
+- `design/08_paper_outline_current_20260527.md`
 - `empirical_runs/53_v6_final_review_checks_20260525.md`
 - `empirical_runs/54_v6_focal_good_news_pretrend_checks_20260525.md`
+- `empirical_runs/55_specificity_validation_sample_20260525.md`
+- `empirical_runs/57_v7_ai_supply_chain_disclosure_diagnostic_20260527.md`
+- `empirical_runs/58_v7_ai_supply_chain_stacked_did_20260527.md`
+- `empirical_runs/59_v7_disclosure_type_horserace_20260527.md`
+- `empirical_runs/60_v7_event_time_peer_validity_20260527.md`
 - `empirical_runs/52_v6_identification_strengthening_checks_20260524.md`
 - `empirical_runs/50_v6_external_ai_active_on_ai_stripped_similarity_20260524.md`
 
@@ -44,9 +53,12 @@
 3. `../claude_project/3/source_docs/03_current_research_design_20260525.md`
 4. `../claude_project/3/source_docs/07_final_review_checks_20260525.md`
 5. `../claude_project/3/source_docs/08_focal_good_news_pretrend_checks_20260525.md`
-6. `../claude_project/3/results_csv/headline.csv`
-7. `../claude_project/3/results_csv/task1_focal_good_news_controls.csv`
-8. `../claude_project/3/results_csv/task2_pretrend_residualized_y.csv`
+6. `../claude_project/3/source_docs/09_design_freeze_20260525.md`
+7. `../claude_project/3/source_docs/10_specificity_validation_codebook_20260525.md`
+8. `../claude_project/3/source_docs/11_specificity_validation_execution_plan_20260525.md`
+9. `../claude_project/3/results_csv/headline.csv`
+10. `../claude_project/3/results_csv/task1_focal_good_news_controls.csv`
+11. `../claude_project/3/results_csv/task2_pretrend_residualized_y.csv`
 
 也可以直接上传：
 
@@ -86,8 +98,13 @@
 
 ## Empirical Runs
 
+- `60_v7_event_time_peer_validity_20260527.md`: task 4/5 输出；包含 daily event-time 图、window lead-lag 图、Top1-3/Top4-5/Top6-10/low-sim/random 的产品市场近邻有效性表和系数图。
+- `59_v7_disclosure_type_horserace_20260527.md`: 披露类型 horse-race。四类 Type × AIActive 不能吃掉 `Specificity_z × AIActive`；supply-chain 披露只有平均 peer effect 为正，更像 category validation。
+- `58_v7_ai_supply_chain_stacked_did_20260527.md`: AI 供应链披露分支的 stacked event-DID。结论是 Top5 `Supply × Post[0,+1]` 不显著，low-sim DDD 也不显著；不能作为当前主线 DID。
+- `57_v7_ai_supply_chain_disclosure_diagnostic_20260527.md`: AI 供应链披露文本诊断。横截面事件窗中供应链披露对应正向 Top5 peer CAR，更像 category validation，但与原主线 `Specificity_z × AIActivePeer` 是不同分支。
 - `53_v6_final_review_checks_20260525.md`: 当前最重要的最终复核；包括 headline 主结果、specificity validation、产品市场距离梯度、lead/lag、external AIActive breakdown、严格机制检验。
 - `54_v6_focal_good_news_pretrend_checks_20260525.md`: 最新核心稳健性；加入 FocalCAR 与 FocalCAR × AIActive，并用 PeerCAR[-10,-2] 净化 Y 后重跑。
+- `55_specificity_validation_sample_20260525.md`: 300 条 specificity validation 样本构造记录，来自当前 headline Top5 事件宇宙，按 specificity 高中低分层。
 - `52_v6_identification_strengthening_checks_20260524.md`: 识别强化；formal DDD、pre-window placebo、focal CAR sign、question-triggered subsample、non-GenAI pseudo-event。
 - `51_v6_peer_firm_fe_identification_check_20260524.md`: peer firm FE 检查。
 - `50_v6_external_ai_active_on_ai_stripped_similarity_20260524.md`: external AIActive 接到 AI-word-stripped 产品相似度后的稳健性。

@@ -18,7 +18,11 @@ The current paper should be reviewed as a **capital-market revaluation paper**, 
 | `02_paper_outline_20260525.md` | Proposed manuscript outline: contribution, hypotheses, table plan, robustness plan, and writing boundary. |
 | `03_chatgpt_pro_review_prompt_20260525.md` | English prompt that can be pasted into ChatGPT Pro with the design files attached. |
 | `04_chatgpt_pro_feedback_digest_20260525.md` | Digest of ChatGPT Pro's feedback and the revised execution priorities. |
+| `05_design_freeze_20260525.md` | Frozen headline sample, main AIActive definition, Table 2 specification, robustness hierarchy, and claim boundaries. |
+| `06_specificity_validation_codebook_20260525.md` | Human/LLM codebook for validating disclosure specificity. |
+| `07_specificity_validation_execution_plan_20260525.md` | Execution plan for agreement statistics, construct validation, and future-evidence validation. |
 | `../empirical_runs/54_v6_focal_good_news_pretrend_checks_20260525.md` | Focused robustness checks for focal-firm good-news controls and pre-trend-adjusted peer CAR. |
+| `../empirical_runs/55_specificity_validation_sample_20260525.md` | 300-event validation sample construction log. |
 
 ## Current One-Sentence Design
 
@@ -83,6 +87,24 @@ Adding FocalCAR[0,+1] and FocalCAR[0,+1] × AIActive:
 Residualizing PeerCAR[0,+1] on PeerCAR[-10,-2]:
     text-history: coef remains about -0.00228, p = 0.026-0.027
     ext_any:      coef remains about -0.00230, p = 0.020-0.021
+```
+
+Latest design freeze:
+
+```text
+Main AIActive is now external ext_any.
+Text-history AIActive is robustness / extension.
+Table 2 headline specification is within-event FE heterogeneity.
+DDD is robustness / placebo.
+Headline sample is first focal GenAI event × Top5 product-market peers.
+```
+
+Specificity validation package:
+
+```text
+300 validation events drawn from 2,177 eligible headline focal events.
+Balanced by Specificity_z tercile: low 100 / mid 100 / high 100.
+Coding template and LLM input are in data/specificity_validation/.
 ```
 
 ## Revised Execution Priorities After External Review

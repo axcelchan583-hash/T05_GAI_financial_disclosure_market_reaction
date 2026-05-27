@@ -12,6 +12,9 @@ Please do not treat this as a strong causal paper. The intended paper is a capit
 2. `source_docs/03_current_research_design_20260525.md`
 3. `source_docs/07_final_review_checks_20260525.md`
 4. `source_docs/08_focal_good_news_pretrend_checks_20260525.md`
+5. `source_docs/09_design_freeze_20260525.md`
+6. `source_docs/10_specificity_validation_codebook_20260525.md`
+7. `source_docs/11_specificity_validation_execution_plan_20260525.md`
 
 Use the CSV files only if you need to inspect the exact rows behind the summarized results.
 
@@ -34,6 +37,17 @@ Main regressor:
 
 ```text
 Specificity_z_e × AIActivePeer_j,t-5
+```
+
+Design-freeze decision:
+
+```text
+headline AIActive = external ext_any
+    prior CAC filing OR prior broad-AI patent grant OR prior broad-AI hiring
+
+text-history AIActive = robustness / extension
+DDD = robustness / placebo
+headline sample = first focal GenAI event × Top5 product-market peers
 ```
 
 Preferred specification:
@@ -85,6 +99,8 @@ Evaluate the identification strategy:
 - non-GenAI pseudo-event placebo.
 - focal-firm good-news controls;
 - pre-trend-adjusted outcome residualized on `PeerCAR[-10,-2]`.
+- the design-freeze decision to use external `ext_any` as headline AIActive;
+- the proposed 300-event specificity validation codebook and sample.
 
 Which remaining threat is most damaging?
 

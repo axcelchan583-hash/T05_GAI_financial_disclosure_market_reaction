@@ -1,0 +1,7 @@
+y,x,n,pearson,spearman
+machine_component_sum,specificity_z,300,0.016374225308242348,0.04878789516431502
+machine_specificity_score_0_4,specificity_z,300,0.023695494415639996,0.06359810609765919
+machine_component_sum,specificity,300,0.006119541303149846,0.04861192693214164
+machine_specificity_score_0_4,specificity,300,0.01367206641164442,0.06342734893904549
+machine_component_sum,total_specific_items,300,0.4094980933606003,0.38585755939111965
+machine_specificity_score_0_4,total_specific_items,300,0.38272782191327204,0.3924167595623916

@@ -35,16 +35,17 @@ Specificity_z_e × AIActivePeer_j,t-5
 
 `AIActivePeer_j,t-5` indicates whether the peer had observable AI/GenAI activity before the focal event with a five-day buffer.
 
-The paper currently uses two core AIActive definitions:
+Design-freeze decision: the paper uses external `ext_any` as the headline AIActive definition, with text-history AIActive as robustness / extension.
 
 ```text
-current_text_history:
-    peer had prior GenAI disclosure before event date t-5
-
 ext_any:
     prior CAC generative-AI service filing
  OR prior broad-AI patent grant
  OR at least one broad-AI job posting in the prior 365 days
+
+current_text_history:
+    robustness / extension;
+    peer had prior GenAI disclosure before event date t-5
 ```
 
 ### Main Y
@@ -109,6 +110,22 @@ Under text-history AIActive, the full observable text-controls specification rem
 ```text
 coef = -0.001824, p = 0.071
 ```
+
+The project now includes a positive specificity-validation package:
+
+```text
+300 events drawn from the 2,177 eligible focal events in the headline Top5 analysis universe.
+The sample is balanced by Specificity_z tercile: low 100 / mid 100 / high 100.
+Included files:
+    validation sample CSV
+    human coding template
+    LLM JSONL input
+    coding codebook
+    LLM coding prompt
+    execution plan for agreement and validation regressions
+```
+
+The validation codebook asks human and LLM coders to code eight concrete GenAI specificity components: product/service, model/platform, use case, customer/industry, partner, deployment status, commercialization/timeline, and quantitative commitment.
 
 ## Focused Good-News and Pre-Trend Robustness
 
