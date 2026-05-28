@@ -1,6 +1,78 @@
 # T05: 中国上市公司 GenAI 披露、竞品市场重估与同伴扩散机制
 
-更新时间：2026-05-27
+更新时间：2026-05-28
+
+## 2026-05-28 最新判断
+
+主线继续做，但需要把 claim 收紧到“短窗资本市场重估”。`Specificity_z` 暂时继续作为主文本细节指标使用；人工编码分支先从主线中拿掉。
+
+最新收口检验：
+
+```text
+docs/empirical_runs/61_v8_measurement_final_checks_20260527.md
+results/v8_measurement_final_checks_20260527
+docs/design/09_project_outline_v8_after_measurement_checks_20260528.md
+```
+
+最新结论：
+
+```text
+1. 主市场反应结果仍成立。
+
+   Final sample:
+       first focal GenAI event × Top5 product-market peers
+       N = 7,805
+       events = 2,177
+       peer firms = 3,345
+       window = 2023-01-01 to 2026-05-20
+
+   ext_any headline:
+       coef = -0.002303
+       p = 0.020
+
+   加入 AI-theme abnormal return × AIActive 后：
+       coef = -0.002112
+       p = 0.032
+
+   经济量级：
+       median total market-cap effect ≈ RMB -21.85 million
+       median float market-cap effect ≈ RMB -17.85 million
+
+2. headline AIActive 继续用 ext_any。
+
+   ext_any =
+       prior CAC filing
+    OR prior broad-AI patent grant
+    OR prior broad-AI hiring in previous 365 days
+
+   current_text_history 只能作为 robustness，
+   因为它有显著 pre-window negative pattern。
+
+3. 人工编码分支暂时不进入主线。
+
+   当前处理：
+       不把人工 score 当作推翻主测度的金标准；
+       不在主文或外部评审包中突出该部分；
+       只在内部记录中说明二者测的是不同概念。
+
+   论文主线仍用 Specificity_z 表示 objective text-detail / disclosure concreteness proxy，
+   但不把它写成“真实 GenAI 落地具体性”。
+```
+
+当前可安全写的主问题：
+
+```text
+更具体的 GenAI 披露是否被资本市场解读为竞争风险信号，
+使事前 AI-active 的近产品市场同行出现更负的短窗相对重估？
+```
+
+当前不能写：
+
+```text
+GenAI 披露导致竞争对手价值损失；
+GenAI 披露证明真实 business stealing；
+Specificity_z 已经验证为“真实 GenAI 落地具体性”。
+```
 
 ## 当前结论
 

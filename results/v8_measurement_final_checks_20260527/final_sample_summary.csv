@@ -1,0 +1,2 @@
+sample_name,rows,events,focal_firms,peer_firms,date_min,date_max,rank_min,rank_max,mean_y,ext_any_share,text_history_share,requires_peer_pre10_pre20,requires_focal_car,announcement_cleaned
+final_headline_top5,7805,2177,2177,3345,2023-01-01,2026-05-20,1,5,-4.0177962161600595e-05,0.21089045483664318,0.2640614990390775,True,True,True

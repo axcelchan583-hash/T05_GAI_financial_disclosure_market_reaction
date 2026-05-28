@@ -208,18 +208,19 @@ current_text_history:
     coef = -0.002275, p = 0.027
 ```
 
-### Table 3: Specificity Measurement Validation
+### Table 3: Text-Measure Robustness
 
 Purpose:
 
-Show that Specificity_z is not only length, AI keyword volume, sentiment, or generic verbosity.
+Show that `Specificity_z` is not only length, AI keyword volume, sentiment, source attention, or generic verbosity.
 
 Include:
 
-- 300-row manual/LLM coding validation;
-- component scores: product/service, model/platform, use case, customer/industry, partner, deployment, commercialization/timeline, quantitative commitment;
-- correlation between Specificity_z and validation scores;
-- main regression with text controls.
+- answer and question length controls;
+- AI keyword intensity controls;
+- source / attention controls;
+- numeric-detail controls;
+- main regression with all observable text controls.
 
 ### Figure 1: Window Lead/Lag
 
@@ -444,4 +445,3 @@ Claim:
 - The evidence is consistent with capital markets interpreting specific GenAI disclosures as competitive-risk signals for AI-active close product-market peers.
 - The result is a short-window peer-side revaluation effect.
 - Category validation and competitive risk coexist; specificity helps identify the competitive-risk side.
-

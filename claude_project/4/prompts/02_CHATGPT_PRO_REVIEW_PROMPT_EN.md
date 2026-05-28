@@ -167,8 +167,8 @@ Please produce a structured review with:
    - Should DDD be headline or appendix?
 
 6. **Specificity measurement**
-   - What validation is still necessary?
-   - How should the manual/LLM coding be used?
+   - Is the objective text-detail / disclosure-concreteness framing defensible?
+   - Are the observable text-control checks enough for the current paper framing?
 
 7. **Product-market peer validity**
    - Are the Top1-3 / Top6-10 / low-sim / random checks enough?
@@ -186,4 +186,3 @@ Please produce a structured review with:
    - List claims I can safely make.
 
 Use a candid referee tone. If AJG/ABS 3 is not realistic, say so directly and explain why.
-

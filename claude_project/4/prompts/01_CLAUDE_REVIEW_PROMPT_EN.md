@@ -91,7 +91,7 @@ Please provide a referee-style assessment with these sections:
 
 4. **Measurement assessment**
    - Is `Specificity_z` sufficiently defensible?
-   - What additional validation is still needed?
+   - Are the observable text-control checks sufficient for the current framing?
    - Are the disclosure-type horse-race results useful?
    - Is `ext_any` the right main AIActive measure?
 
@@ -116,4 +116,3 @@ Please provide a referee-style assessment with these sections:
    - Give a clear decision: go draft now, revise before drafting, or stop/pivot.
 
 Please be concrete. Use coefficient magnitudes and p-values from the uploaded files when relevant.
-

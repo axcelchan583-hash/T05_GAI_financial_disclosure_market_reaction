@@ -1,0 +1,9 @@
+model,outcome,term,coef,se,z,p,nobs,events,peer_firms,mean_y,peer_group,ai_def,fe_spec
+prewindow_placebo,peer_car_pre10_m2_mm,spec_ai,-0.004847385082379,0.0023931397680999,-2.025533630335183,0.0428125987963672,8670,2415,3570,0.0084658931895921,true_top5,current_text_history,event_fe_peer_industry_week_fe
+prewindow_placebo,peer_car_pre20_m2_mm,spec_ai,-0.0091493055980167,0.0031133590995324,-2.938724800293937,0.0032956556095415,8649,2415,3566,0.0127778942765448,true_top5,current_text_history,event_fe_peer_industry_week_fe
+prewindow_placebo,peer_car_pre10_m2_mm,spec_ai,7.602536702320591e-05,0.0022118220971642,0.0343722793621948,0.9725802882697204,8670,2415,3570,0.0084658931895921,true_top5,ext_any,event_fe_peer_industry_week_fe
+prewindow_placebo,peer_car_pre20_m2_mm,spec_ai,-0.0017490519924717,0.0029731134095399,-0.5882896988925778,0.5563378586746155,8649,2415,3566,0.0127778942765448,true_top5,ext_any,event_fe_peer_industry_week_fe
+prewindow_placebo,peer_car_pre10_m2_mm,spec_ai,-0.0044961210526993,0.0030839234158316,-1.457922408065663,0.1448619313726353,7236,2341,1679,0.004780896281599,low_top5,current_text_history,event_fe_peer_industry_week_fe
+prewindow_placebo,peer_car_pre20_m2_mm,spec_ai,-0.0066437936099956,0.004458729145314,-1.4900644092673856,0.1362073011755835,7218,2341,1679,0.0079209389681188,low_top5,current_text_history,event_fe_peer_industry_week_fe
+prewindow_placebo,peer_car_pre10_m2_mm,spec_ai,-0.0022926532770086,0.0028799537621332,-0.7960729464317314,0.4259896375830729,7236,2341,1679,0.004780896281599,low_top5,ext_any,event_fe_peer_industry_week_fe
+prewindow_placebo,peer_car_pre20_m2_mm,spec_ai,-0.0036147655574327,0.0041575200268381,-0.8694523499822637,0.3845997601364859,7218,2341,1679,0.0079209389681188,low_top5,ext_any,event_fe_peer_industry_week_fe

@@ -157,4 +157,3 @@ The paper should not claim:
 5. Does the product-market proximity evidence adequately validate the peer construction?
 6. How should the paper present the disclosure-type horse-race and AI supply-chain boundary results?
 7. What are the top remaining fatal threats before drafting?
-

@@ -75,6 +75,12 @@ results/v6_peer_firm_fe_checks_20260524/*
 results/v6_trading_response_checks_20260524/*
 !results/v6_trading_response_checks_20260524/*regressions.csv
 !results/v6_trading_response_checks_20260524/*summary.csv
+!results/v8_measurement_final_checks_20260527/
+results/v8_measurement_final_checks_20260527/*
+!results/v8_measurement_final_checks_20260527/*.csv
+results/v8_measurement_final_checks_20260527/matched_market_caps.csv
+results/v8_measurement_final_checks_20260527/specificity_coder_*.csv
+results/v8_measurement_final_checks_20260527/specificity_validated_scores_300.csv
 
 # Logs and temporary files
 *.log

@@ -1,0 +1,3 @@
+model,outcome,term,coef,se,z,p,nobs,events,peer_firms,mean_y,ai_def,fe_spec
+non_genai_iip_pseudo_event_ddd,peer_car_0_p1_mm,spec_ai_true,0.0023492739245538,0.0025541189463422,0.9197981667683138,0.3576782415382016,14790,2436,3679,-0.0007263091411894,current_text_history,event_fe
+non_genai_iip_pseudo_event_ddd,peer_car_0_p1_mm,spec_ai_true,0.002283945036322,0.0025582857491887,0.8927638505769971,0.371983648889794,14790,2436,3679,-0.0007263091411894,current_text_history,event_fe_peer_industry_week_fe

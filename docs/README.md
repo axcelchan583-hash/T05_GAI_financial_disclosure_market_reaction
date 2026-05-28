@@ -1,6 +1,6 @@
 # Docs Index
 
-更新时间：2026-05-27
+更新时间：2026-05-28
 
 这个目录已经按用途整理。后续默认先看 `design/`；旧设计、降级路线和早期版本都放进 `archive/` 或保留为历史诊断，避免继续混在当前主线里。
 
@@ -27,6 +27,7 @@
 
 最重要的当前文件：
 
+- `design/09_project_outline_v8_after_measurement_checks_20260528.md`
 - `design/00_REVIEW_PACKAGE_README_20260525.md`
 - `design/01_current_research_design_20260525.md`
 - `design/02_paper_outline_20260525.md`
@@ -43,27 +44,48 @@
 - `empirical_runs/58_v7_ai_supply_chain_stacked_did_20260527.md`
 - `empirical_runs/59_v7_disclosure_type_horserace_20260527.md`
 - `empirical_runs/60_v7_event_time_peer_validity_20260527.md`
+- `empirical_runs/61_v8_measurement_final_checks_20260527.md`
 - `empirical_runs/52_v6_identification_strengthening_checks_20260524.md`
 - `empirical_runs/50_v6_external_ai_active_on_ai_stripped_similarity_20260524.md`
 
-如果只给网页版 / Claude 上传材料，优先上传：
+2026-05-28 最新收口判断：
 
-1. `../claude_project/3/01_PROJECT_BRIEF_EN.md`
-2. `../claude_project/3/02_DEEP_REVIEW_PROMPT_EN.md`
-3. `../claude_project/3/source_docs/03_current_research_design_20260525.md`
-4. `../claude_project/3/source_docs/07_final_review_checks_20260525.md`
-5. `../claude_project/3/source_docs/08_focal_good_news_pretrend_checks_20260525.md`
-6. `../claude_project/3/source_docs/09_design_freeze_20260525.md`
-7. `../claude_project/3/source_docs/10_specificity_validation_codebook_20260525.md`
-8. `../claude_project/3/source_docs/11_specificity_validation_execution_plan_20260525.md`
-9. `../claude_project/3/results_csv/headline.csv`
-10. `../claude_project/3/results_csv/task1_focal_good_news_controls.csv`
-11. `../claude_project/3/results_csv/task2_pretrend_residualized_y.csv`
+```text
+主市场反应结果仍成立：
+    final sample N = 7,805
+    events = 2,177
+    ext_any coef = -0.002303, p = 0.020
+    + AI-theme abnormal return × AIActive 后 coef = -0.002112, p = 0.032
+
+人工编码分支暂时不进入主线：
+    该结果只作为内部测度边界检查，不作为主线否定证据。
+
+当前主文仍使用 Specificity_z 作为 objective text-detail / disclosure concreteness proxy，
+但不把它写成“真实 GenAI 落地具体性”的人工金标准测度。
+```
+
+如果只给网页版 / Claude 上传材料，优先上传 clean package：
+
+```text
+../claude_project/4/T05_review_package_4_20260528_clean.zip
+```
+
+如果对方不能上传 zip，再按以下顺序传：
+
+1. `../claude_project/4/01_PROJECT_BRIEF_EN.md`
+2. `../claude_project/4/prompts/01_CLAUDE_REVIEW_PROMPT_EN.md`
+3. `../claude_project/4/prompts/02_CHATGPT_PRO_REVIEW_PROMPT_EN.md`
+4. `../claude_project/4/source_docs/01_current_paper_outline_20260527.md`
+5. `../claude_project/4/source_docs/02_final_review_checks_20260525.md`
+6. `../claude_project/4/source_docs/03_focal_good_news_pretrend_checks_20260525.md`
+7. `../claude_project/4/source_docs/04_disclosure_type_horserace_20260527.md`
+8. `../claude_project/4/source_docs/05_event_time_peer_validity_20260527.md`
+9. `../claude_project/4/results_csv/headline.csv`
 
 也可以直接上传：
 
 ```text
-../claude_project/3/T05_claude_chatgpt_review_package_20260525.zip
+../claude_project/4/T05_review_package_4_20260528_clean.zip
 ```
 
 ## 目录结构
@@ -99,6 +121,7 @@
 ## Empirical Runs
 
 - `60_v7_event_time_peer_validity_20260527.md`: task 4/5 输出；包含 daily event-time 图、window lead-lag 图、Top1-3/Top4-5/Top6-10/low-sim/random 的产品市场近邻有效性表和系数图。
+- `61_v8_measurement_final_checks_20260527.md`: 最新收口检查；冻结 final headline sample，报告 AI-theme date-shock controls、external AIActive 组件审计、经济量级换算和 placebo 摘要。300 条双编码结果暂作内部测度边界检查，不进入当前主线。
 - `59_v7_disclosure_type_horserace_20260527.md`: 披露类型 horse-race。四类 Type × AIActive 不能吃掉 `Specificity_z × AIActive`；supply-chain 披露只有平均 peer effect 为正，更像 category validation。
 - `58_v7_ai_supply_chain_stacked_did_20260527.md`: AI 供应链披露分支的 stacked event-DID。结论是 Top5 `Supply × Post[0,+1]` 不显著，low-sim DDD 也不显著；不能作为当前主线 DID。
 - `57_v7_ai_supply_chain_disclosure_diagnostic_20260527.md`: AI 供应链披露文本诊断。横截面事件窗中供应链披露对应正向 Top5 peer CAR，更像 category validation，但与原主线 `Specificity_z × AIActivePeer` 是不同分支。
