@@ -1,6 +1,919 @@
 # T05: 中国上市公司 GenAI 披露、竞品市场重估与同伴扩散机制
 
-更新时间：2026-05-28
+更新时间：2026-06-01
+
+## 2026-06-01 最新识别风险审计
+
+当前项目不能再被表述为“一个显著主效应已经自然成立”。更准确的状态是：
+
+```text
+有可写的核心现象：
+    更具体的 GenAI 披露与 AI-active 的 LLM-screened direct product-market peers
+    更负的 PeerCAR[0,+1] 相关。
+
+但 peer definition 是最大风险：
+    严格中文年报文本产品相似度 peer 不能复制当前主结果；
+    当前有效 peer 是 LLM-screened direct competitors，而不是传统年报文本 peer。
+```
+
+### 需要解决的识别/测度问题
+
+从 X 到 Y，目前至少有五层问题：
+
+| 层级 | 关键攻击点 | 当前处理 | 风险等级 |
+|---|---|---|---|
+| X: GenAI 披露事件 | 是否只是普通“人工智能”泛泛提及 | 事件要求公司回复/披露文本含 GenAI/AIGC/大模型/ChatGPT/DeepSeek 等词 | 中 |
+| X: 披露具体性 | `Specificity_z` 到底测什么 | 参考 Hope, Hu and Lu (2016) 的 disclosure specificity；强调“可观察文本具体性”，不是能力 | 中高 |
+| X: 文本混杂 | 是否只是长度、AI 词频、IR 活跃度 | 控制 answer/question length、AI keyword、source、年份/月度、disclosure type | 中 |
+| Peer definition | 谁是真正竞品 | 当前显著结果依赖 LLM-screened candidate-menu Top5；传统年报文本 peer 不支持主结果 | 高 |
+| AIActivePeer | 是否同源、是否 look-ahead | 主口径倾向 `ext_any`；text-history 只并列/稳健性；所有证据需 t-5 前可观察 | 高 |
+| Y: PeerCAR | 是否自造 Y | `PeerCAR[0,+1]` 是标准短窗 event-study / information-transfer outcome | 低 |
+| 事件污染 | 同日公告/业绩/重大事项污染 | announcement-cleaned 样本；pre-window CAR controls | 中 |
+| 模型识别 | 是否是 DID/强因果 | 不是 DID/IV；是 within-event cross-sectional revaluation design | 高 |
+| 理论解释 | business stealing 是否过度 | 只能写 competitive-risk reassessment；不能写真实业务挤出 | 中高 |
+
+### 当前 8 个硬门槛
+
+1. **X 不是 generic AI**：GenAI 关键词与语境过滤要清楚。
+2. **X 有 Hope-style 文献锚**：写成“参考 Hope 构造的生成式 AI 披露具体性”。
+3. **X 不只是长度/AI 词频**：主表或测度表必须控制文本长度、AI 词频、问题长度。
+4. **Peer 不能被说成纯自造**：需要候选集来源、LLM 筛选规则、validity tests。
+5. **AIActive 用外部证据做 headline**：`ext_any` 优先，text-history 并列但不单独承担主结果。
+6. **Y 是标准 CAR**：保留 market-model `PeerCAR[0,+1]`，并做公告污染清理。
+7. **模型承认是相对重估**：event FE 下识别的是同一焦点事件内 AI-active vs non-AI-active peer 的相对差异。
+8. **机制区分 competitive risk 和 category validation**：具体化披露负向重估；供应链/行业验证披露可正向。
+
+## 2026-06-01 中文年报文本 peer 复刻结果
+
+为回应“能否按任宏达、王琨（2019，《会计研究》）和刘昌阳、刘亚辉、尹玉刚（2020，《世界经济》）的中文年报文本产品市场竞争口径构造 peer”的问题，新增 v22：
+
+```text
+scripts/build_v22_chinese_literature_product_peers_20260601.py
+scripts/run_v22_chinese_literature_peer_main_effect_20260601.py
+docs/empirical_runs/85_v22_chinese_literature_product_peer_checks_20260601.md
+results/v22_chinese_literature_product_peers_20260601/
+results/v22_chinese_literature_peer_main_effect_20260601/
+```
+
+构造两套文献口径：
+
+```text
+Ren-Wang binary:
+    年报业务文本 -> 中文分词 -> 去停用/非产品词 -> 0/1 产品业务词向量
+    -> cosine similarity -> TopN peers
+
+Liu-Liu-Yin product-TFIDF:
+    CSMAR 主营业务/经营范围生成产品词库 -> 年报产品词 TF-IDF
+    -> cosine similarity -> TopN peers
+```
+
+Top5 强 FE 主结果，系数均为 `Specificity_z × AIActivePeer`：
+
+| peer 口径 | AIActive | coef | p |
+|---|---|---:|---:|
+| Ren-Wang binary global | ext_any | 0.000895 | 0.281 |
+| Ren-Wang binary global | current_text_history | -0.001383 | 0.113 |
+| Ren-Wang binary same-industry | ext_any | 0.001413 | 0.035 |
+| Ren-Wang binary same-industry | current_text_history | 0.000472 | 0.502 |
+| Liu product-TFIDF global | ext_any | -0.000826 | 0.354 |
+| Liu product-TFIDF global | current_text_history | -0.000947 | 0.299 |
+| Liu product-TFIDF same-industry | ext_any | -0.000797 | 0.273 |
+| Liu product-TFIDF same-industry | current_text_history | -0.001585 | 0.039 |
+
+解释：
+
+```text
+严格中文年报文本 peer 口径不支持当前 competitive-risk 主效应。
+最干净的 external AIActive (`ext_any`) 没有稳定负向结果；
+个别 text-history 结果显著，但依赖同源 AIActive，不能作为 headline。
+```
+
+因此后续写法必须区分：
+
+```text
+文献基础：
+    Hoberg and Phillips / 任宏达-王琨 / 刘昌阳等提供“文本产品相似度”
+    和“产品市场 peer”构造思想。
+
+当前有效 peer：
+    从年报文本、CSMAR 业务范围和 AI-word-stripped 年报文本生成候选集，
+    再由 LLM 筛选 direct product-market competitors。
+
+论文责任：
+    证明 LLM-screened direct peers 在 GenAI 披露短窗重估场景下更贴近
+    直接竞争关系，而不是宣称传统中文年报文本 peer 已经支持主结果。
+```
+
+## 当前可写故事
+
+```text
+主线 A：竞争风险重估
+    更具体的 GenAI 披露
+    -> AI-active LLM-screened direct peers 的 PeerCAR[0,+1] 更负
+    -> 解释为资本市场识别 competitive-risk signal
+
+边界 B：类别验证 / 供应链验证
+    GenAI announcement / AI supply-chain exposure disclosure
+    -> 相关 peers 平均反应可能为正
+    -> 解释为 category validation，而不是竞争风险
+```
+
+当前最安全结论：
+
+```text
+本文识别的是资本市场短窗口相对重估：
+    specific GenAI disclosure × pre-event AI activeness × direct product-market proximity
+
+本文不声称：
+    强因果、真实 business stealing、真实 GenAI 能力建设、
+    或传统年报文本 peer 口径下主结果完全稳健。
+```
+
+## 2026-06-01 组会版冻结口径
+
+新增组会版实验设计：
+
+```text
+docs/design/12_group_meeting_experimental_design_20260601.md
+docs/design/13_framework_measurement_support_20260601.md
+docs/design/figures/figure_framework_measurement_support_20260601.svg
+docs/design/figures/figure_framework_measurement_support_20260601.png
+docs/empirical_runs/81_v17_deepseek_flash_peer_network_20260531.md
+docs/empirical_runs/82_v18_cao_style_open_ended_deepseek_peers_20260531.md
+results/v17_deepseek_flash_peer_coding_20260531/
+results/v18_cao_style_open_ended_deepseek_peers_20260531/
+```
+
+当前框架图把所有关键测度的支撑写进图里：
+
+```text
+X:
+    Specificity_z
+    支撑：Hope, Hu and Lu (2016); Cheng et al. (2019)
+
+Y:
+    PeerCAR[0,+1]
+    支撑：Beaver (1968); MacKinlay (1997); Kothari and Warner (2007);
+          Foster (1981); Lang and Stulz (1992)
+
+Peer:
+    DeepSeek Flash-selected Top5 product-market peers
+    支撑：Hoberg and Phillips (2016); Cao et al. (2025);
+          本文 v19/v20 peer-validity checks
+
+AIActive:
+    ext_any = prior CAC / AI patent / AI hiring evidence
+    支撑：Babina et al. (2024); Kogan et al. (2017);
+          CAC public registry evidence
+```
+
+当前主线更新为：
+
+```text
+Research question:
+    更具体的 GenAI 披露是否使资本市场对 AI-active 的近产品市场同行
+    进行更负面的短窗口相对重估？
+
+Main X:
+    Specificity_z
+    Hope-style GenAI disclosure specificity / text-detail density.
+
+Main Y:
+    PeerCAR[0,+1]
+    DeepSeek Flash-selected product-market peer 的 signed market-model CAR.
+
+Main peer definition:
+    DeepSeek Flash-selected Top5 product-market peers from a no-random,
+    auditable candidate menu.
+
+Candidate menu:
+    CSMAR business-scope Top10
+    annual-report same-industry business-text Top10
+    annual-report global AI-word-stripped Top10
+
+Main AIActive:
+    ext_any =
+        prior CAC GenAI filing / registration
+     OR prior broad-AI patent grant
+     OR prior broad-AI hiring in prior 365 days
+```
+
+DeepSeek Flash 全量 peer 编码：
+
+```text
+model: deepseek-v4-flash
+focal firms coded: 2,652
+selected focal-peer pairs: 11,864
+prompt tokens: 2,237,821
+completion tokens: 97,058
+estimated cost: about RMB 2.4
+API key: read from environment only; not stored in scripts or outputs
+```
+
+DeepSeek Flash-selected Top5 主结果：
+
+```text
+PeerCAR[0,+1] =
+    beta * Specificity_z × AIActivePeer
+  + AIActivePeer
+  + PeerCAR[-10,-2] + PeerCAR[-20,-2]
+  + event FE
+  + peer industry-week FE
+
+two-way clustered by event_id and peer_code
+sample = first focal GenAI event, announcement-cleaned
+
+AIActive = ext_any:
+    coef = -0.002137
+    p    = 0.0157
+    N    = 7,813
+    events = 2,311
+
+AIActive = current_text_history:
+    coef = -0.002283
+    p    = 0.0108
+
+AIActive = ext_plus_history:
+    coef = -0.002252
+    p    = 0.0116
+```
+
+### Cao-style open-ended DeepSeek peer diagnostic
+
+为回应“能否完全按 Cao et al. (2025) 的 open-ended LLM peer
+generation 来做”的问题，新增 v18 诊断：
+
+```text
+Peer definition:
+    DeepSeek open-ended Cao-style Top5 A-share product-market peers.
+    不提供候选池；只要求模型列出 A 股上市公司竞品代码和简称。
+
+Coverage:
+    input focal firms: 2,652
+    focals with at least one matched peer: 2,585
+    selected peer pairs: 12,099
+    unmatched generated peers: 1
+
+Overlap with v17 candidate-menu DeepSeek peers:
+    pair overlap: 1,425
+    share of v18 pairs overlapping v17: 11.8%
+    focal-level median Jaccard overlap: 0.000
+
+Main result, Top5, AIActive = ext_any:
+    coef = -0.000828
+    p    = 0.2228
+    N    = 7,934
+    events = 2,322
+
+Same-industry filtered v18, Top5:
+    ext_any:              coef = -0.000630, p = 0.4926
+    current_text_history: coef = -0.002373, p = 0.0140
+    ext_plus_history:     coef = -0.001883, p = 0.0229
+```
+
+解释：v18 更接近 Cao et al. 的 open-ended LLM peer generation，
+但在中国 A 股中更 noisy，且在最干净的 external AIActive (`ext_any`)
+下不复制 v17 主结果。当前不宜把 v18 作为 headline peer definition；
+它应作为 conservative robustness / boundary check。主文仍以 v17
+auditable candidate-menu DeepSeek peers 为主，并明确这是对 Cao et al.
+思想的中国场景适配，而非完全复刻。
+
+### DeepSeek-selected peer validity package
+
+为回应“DeepSeek Flash-selected Top5 product-market peers 是否有效”的问题，
+新增 v19 非人工验证包：
+
+```text
+docs/empirical_runs/83_v19_deepseek_peer_validity_checks_20260531.md
+results/v19_deepseek_peer_validity_checks_20260531/
+```
+
+核心结论：
+
+```text
+Output stability, 100-focal rerun:
+    mean Jaccard overlap = 0.8708
+    median Jaccard overlap = 1.0000
+    mean common peers     = 4.505 / 5
+    top1 same share       = 84.5%
+
+Overlap with non-random alternative peer systems:
+    CSMAR business-scope Top5 overlap share of v17 = 44.3%
+    annual same-industry text Top5 overlap share    = 33.9%
+    annual AI-word-stripped text Top5 overlap share = 20.0%
+    random same-industry overlap share              = 1.8%
+    low-similarity overlap share                    = 0.8%
+
+Return comovement, 2025-2026:
+    v17 DeepSeek peers:
+        mean abnormal-return beta = 0.6008
+        mean abnormal-return corr = 0.4147
+    random same-industry peers:
+        beta = 0.4592, corr = 0.3007
+    low-similarity peers:
+        beta = 0.3780, corr = 0.2459
+
+Fundamental comovement:
+    v17 DeepSeek peers have the highest gross-margin residual correlation
+    and highest sales-growth residual correlation among tested systems.
+```
+
+解释：跳过人工专家盲审后，当前能最快补强的是 Cao et al. 风格的
+output stability、与既有文本 peer 系统的 overlap、收益共动、
+基本面共动和同质性检验。v19 支持 v17 peer measure 不是随机或低相似
+同行；但它仍不是“真实竞品”的金标准，论文中应写成 validated
+product-market-neighbor proxy。
+
+### DeepSeek-candidate-menu placebo peers
+
+为避免旧 v6 placebo 与当前 DeepSeek peer 口径不完全一致，新增 v20：
+
+```text
+scripts/run_v20_deepseek_candidate_placebos_20260601.py
+docs/empirical_runs/84_v20_deepseek_candidate_placebos_20260601.md
+results/v20_deepseek_candidate_placebos_20260601/
+```
+
+构造逻辑：
+
+```text
+对每个 focal firm：
+    1. 复原 v17 DeepSeek 使用的 no-random candidate menu，最多 15 个候选；
+    2. 排除 DeepSeek Flash-selected Top5；
+    3. 在剩余候选中构造：
+        deepseek_candidate_low_similarity_top5:
+            选择剩余候选中 product similarity 最低的 5 个；
+        deepseek_candidate_random_top5:
+            用固定 focal-code seed 随机抽取 5 个。
+```
+
+覆盖：
+
+```text
+focal firms with candidate menu: 2,652
+focal firms with placebo Top5:   2,652
+mean remaining candidates:       7.73
+median remaining candidates:     8
+```
+
+主规格 placebo 结果，`Specificity_z × AIActivePeer`：
+
+```text
+DeepSeek-selected Top5 headline, ext_any:
+    coef = -0.002137
+    p    = 0.0157
+
+DeepSeek-candidate low-similarity Top5, ext_any:
+    coef =  0.000094
+    p    = 0.9226
+
+DeepSeek-candidate random Top5, ext_any:
+    coef = -0.001639
+    p    = 0.1067
+```
+
+解释：同一候选菜单内的 low-similarity placebo 很干净，说明主结果不是
+“任意候选同行都会出现”。candidate-menu random placebo 有同方向负号但
+不显著，因为剩余候选本身已经是从 CSMAR / 年报文本中筛出的 plausible
+peers，不是普通随机公司。因此论文中应把 v20 random 写成 stress test，
+而不是最强 placebo；最强 falsification 仍是 low-similarity、旧
+same-industry random、non-GenAI pseudo-events 和 open-ended v18 的
+external-AIActive 不复制。
+
+当前组会表述：
+
+```text
+本文识别的是短窗口 peer-side relative revaluation，
+不是强因果、不是真实 business stealing、不是真实 GenAI 能力。
+
+最安全结论：
+    更具体的焦点 GenAI 披露与 AI-active DeepSeek-selected Top5
+    产品市场同行更负的两日异常收益相关。
+```
+
+最大风险仍然是 peer definition sensitivity：
+
+```text
+annual-only peer 不支持主结果；
+patent peer 不支持主结果；
+common-analyst peer 不支持主结果；
+旧 CSMAR scope 和 DeepSeek-selected peer 支持主结果。
+
+因此论文必须把 peer construction 和 peer validity 作为核心测度部分，
+不能把 peer 当成无争议给定变量。
+```
+
+## 2026-05-31 X/Y 测度文献锚与 peer-validity gate
+
+当前先把问题收束为一个 measurement-first goal：
+
+```text
+X 已基本确定：
+    GenAI disclosure event
+    或 GenAI disclosure specificity / concreteness
+
+Y 的大类已确定：
+    股票市场反应
+
+关键不是再自造一个新 Y，
+而是把 Y 写成已有文献中的标准资本市场反应变量：
+    focal firm CAR
+    或 product-market peer CAR
+```
+
+新增测度文献锚文档：
+
+```text
+docs/measurement/13_x_y_measurement_literature_anchor_20260531.md
+```
+
+当前最可防守的 X/Y 组合：
+
+```text
+Main X:
+    生成式人工智能披露具体性
+    GenAI_Disclosure_Specificity / Specificity_z
+
+X 文献锚：
+    Hope, Hu and Lu (2016, RAST)
+        qualitative disclosure specificity as concrete/verifiable detail density
+
+    Cheng, De Franco, Jiang and Lin (2019, Management Science)
+        hot-technology disclosure should be separated into generic/speculative
+        versus existing/substantive content
+
+Main Y:
+    PeerCAR[0,+1]
+    focal GenAI disclosure date around close product-market peers' stock returns
+
+Y 文献锚：
+    Beaver (1968), MacKinlay (1997), Kothari and Warner (2007)
+        standard disclosure/event-study abnormal return framework
+
+    Foster (1981), Lang and Stulz (1992)
+        intra-industry information transfer / competitive effects
+
+    Hoberg and Phillips (2016, JPE)
+        text-based product-market peer network
+```
+
+当前模型含义：
+
+```text
+PeerCAR[0,+1]_{j,t}
+  = beta * Specificity_z_{i,t} * AIActivePeer_{j,t-1}
+  + theta * AIActivePeer_{j,t-1}
+  + controls
+  + event FE
+  + peer industry-week FE
+  + error
+
+由于 Specificity_z 是 event-level 变量，在 event FE 下被吸收；
+真正识别的是同一个 focal GenAI 披露事件内，
+AI-active peers 相对 non-AI-active peers 是否随 focal disclosure specificity
+更高而出现更负的短窗相对重估。
+```
+
+新增 peer-validity gate：
+
+```text
+scripts/run_v13_peer_validity_gate_20260531.py
+scripts/run_v13_peer_fundamental_validity_20260531.py
+docs/empirical_runs/69_v13_peer_validity_gate_20260531.md
+docs/empirical_runs/70_v13_peer_fundamental_validity_20260531.md
+results/v13_peer_validity_gate_20260531/
+data/peer_validity_llm_20260531/
+```
+
+Return-comovement gate, 2025-2026 Top5：
+
+```text
+annual same-industry text Top5:
+    mean abnormal-return corr = 0.4352
+
+annual global text Top5:
+    mean abnormal-return corr = 0.4167
+
+annual global AI-word-stripped text Top5:
+    mean abnormal-return corr = 0.4144
+
+old CSMAR scope Top5:
+    mean abnormal-return corr = 0.3547
+
+random same-industry Top5:
+    mean abnormal-return corr = 0.3007
+
+low-similarity same-industry Top5:
+    mean abnormal-return corr = 0.2459
+```
+
+Fundamental-comovement gate, Top5：
+
+```text
+old CSMAR scope Top5:
+    sales-growth corr = 0.1327
+    gross-margin corr = 0.4413
+
+random same-industry Top5:
+    sales-growth corr = 0.0598
+    gross-margin corr = 0.3106
+
+annual same-industry text Top5:
+    sales-growth corr = 0.2028
+    gross-margin corr = 0.6139
+
+annual global AI-word-stripped text Top5:
+    sales-growth corr = 0.1880
+    gross-margin corr = 0.5527
+```
+
+Manual / LLM inspectability gate：
+
+```text
+新增：
+    scripts/run_v13_peer_manual_llm_gate_20260531.py
+    docs/empirical_runs/71_v13_peer_manual_llm_gate_20260531.md
+    results/v13_peer_validity_gate_20260531/peer_manual_proxy_pair_scores.csv
+    results/v13_peer_validity_gate_20260531/peer_manual_proxy_summary.csv
+    results/v13_peer_validity_gate_20260531/peer_validity_decision_matrix.csv
+    data/peer_validity_llm_20260531/peer_system_validation_template_150_pairs_20260531.csv
+    data/peer_validity_llm_20260531/LLM_PEER_SYSTEM_VALIDATION_TASK.md
+    data/peer_validity_llm_20260531/peer_system_validation_coded_150_pairs_codex_20260531.csv
+    results/v13_peer_validity_gate_20260531/peer_system_validation_coded_150_pairs_codex_summary.csv
+    docs/empirical_runs/72_v13_peer_codex_manual_coding_20260531.md
+    data/peer_validity_llm_20260531/peer_system_validation_coded_150_pairs_agent_20260531.csv
+    results/v13_peer_validity_gate_20260531/peer_system_validation_coded_150_pairs_agent_summary.csv
+    results/v13_peer_validity_gate_20260531/peer_system_manual_coding_two_coder_agreement.csv
+    docs/empirical_runs/73_v13_peer_agent_manual_coding_20260531.md
+    scripts/build_v13_llm_peer_candidate_menu_20260531.py
+    data/peer_validity_llm_20260531/llm_peer_candidate_menu_200_20260531.csv
+    data/peer_validity_llm_20260531/LLM_PEER_RERANKING_TASK.md
+    docs/empirical_runs/74_v13_llm_peer_candidate_menu_20260531.md
+    scripts/run_v13_llm_reranked_peer_gate_20260531.py
+    results/v13_peer_validity_gate_20260531/llm_semantic_reranked_peer_network_top5_200.csv
+    results/v13_peer_validity_gate_20260531/llm_semantic_reranked_return_gate_200.csv
+    results/v13_peer_validity_gate_20260531/llm_semantic_reranked_fundamental_gate_200.csv
+    docs/empirical_runs/76_v13_llm_reranked_peer_gate_20260531.md
+    docs/empirical_runs/75_v13_peer_validity_completion_audit_20260531.md
+```
+
+人工抽查代理结果：
+
+```text
+annual same-industry text Top5:
+    likely direct peer share = 0.8886
+    weak review share        = 0.0053
+
+annual global AI-word-stripped text Top5:
+    likely direct peer share = 0.5422
+    weak review share        = 0.0429
+
+old CSMAR scope Top5:
+    likely direct peer share = 0.4545
+    weak review share        = 0.2167
+
+random same-industry Top5:
+    likely direct peer share = 0.0995
+    weak review share        = 0.4608
+
+low-similarity same-industry Top5:
+    likely direct peer share = 0.0008
+    weak review share        = 0.5778
+```
+
+Codex-assisted semantic coding，150 对抽查样本：
+
+```text
+old CSMAR scope Top5:
+    direct peer share = 0.8000
+    score 3 share     = 0.6000
+
+annual same-industry text Top5:
+    direct peer share = 0.7333
+    score 3 share     = 0.5000
+
+annual global AI-word-stripped text Top5:
+    direct peer share = 0.7333
+    score 3 share     = 0.5667
+
+random same-industry Top5:
+    direct peer share = 0.5333
+    score 3 share     = 0.3333
+
+low-similarity same-industry Top5:
+    direct peer share = 0.3000
+    score 3 share     = 0.2667
+```
+
+解释：
+
+```text
+这版语义抽查显示 CSMAR scope peers 在样本里略强，
+但 random same-industry peers 也并非全是假 peer，
+因为同业随机抽样本身会抽到真实竞品。
+
+所以人工抽查支持：
+    CSMAR scope peer 是可检查、可防守的竞品系统；
+但它不支持：
+    CSMAR scope peer 是无争议最优系统。
+
+加入第二编码者后，排序更稳：
+    年报同业文本 Top5 是人工可解释性最强口径；
+    CSMAR scope Top5 通过人工 gate，但不是最强。
+```
+
+Agent second-coder semantic coding：
+
+```text
+annual same-industry text Top5:
+    direct peer share = 0.7000
+    score 3 share     = 0.4667
+
+old CSMAR scope Top5:
+    direct peer share = 0.5000
+    score 3 share     = 0.1667
+
+annual global AI-word-stripped text Top5:
+    direct peer share = 0.4667
+    score 3 share     = 0.2000
+
+random same-industry Top5:
+    direct peer share = 0.4000
+    score 3 share     = 0.3000
+
+low-similarity same-industry Top5:
+    direct peer share = 0.1667
+    score 3 share     = 0.1000
+```
+
+Two-coder mean direct-peer share：
+
+```text
+annual same-industry text Top5       = 0.7167
+old CSMAR scope Top5                 = 0.6500
+annual global AI-word-stripped Top5  = 0.6000
+random same-industry Top5            = 0.4667
+low-similarity same-industry Top5    = 0.2333
+
+overall direct agreement = 0.6533
+overall direct kappa     = 0.3240
+```
+
+三层 gate 的当前 decision matrix：
+
+```text
+1. annual same-industry annual-report text Top5
+   文献口径最强；return / fundamentals / manual-proxy 都最好；
+   但不复制当前 GenAI PeerCAR 负向主结果。
+
+2. annual global AI-word-stripped text Top5
+   文献口径强，能说明不是 AI 词驱动；
+   但跨行业误配更多，也不复制当前主结果。
+
+3. old CSMAR scope Top5
+   不是最强 peer system，但通过了三层 validity gate：
+       return comovement 强于 random / low-similarity；
+       sales-growth / gross-margin comovement 强于 random / low-similarity；
+       两编码者平均人工评分强于 random / low-similarity。
+   它也是唯一保留当前显著 PeerCAR 结果的 peer system。
+```
+
+当前判断：
+
+```text
+1. X 的测度不是最大问题。
+   生成式 AI 披露具体性可以明确写成：
+   参考 Hope et al. (2016) 的披露具体性思想，
+   并结合 Cheng et al. (2019) 的技术热潮披露分类逻辑。
+
+2. Y 的测度也不是最大问题。
+   PeerCAR[0,+1] 是标准 event-study / information-transfer Y，
+   不是自造 Y。
+
+3. 最大风险在 peer definition。
+   old CSMAR scope peers 通过了 return 和 fundamentals validity gate，
+   明显强于 random / low-similarity peers；
+   但 annual-report text peers 的 return、sales-growth、gross-margin comovement
+   都更强，且文献上更接近 Hoberg-Phillips / Cao et al. 的口径。
+
+4. 旧 CSMAR scope Top5 可以继续作为当前显著结果的主 peer system，
+   但必须透明写成：
+       valid but not dominant text-based business-description peer system。
+
+5. 如果严格追求最干净文献口径，
+   annual-report text peers 更好；
+   但它们没有复制当前 GenAI PeerCAR 主结果。
+
+6. 因此下一步不是改 X/Y，
+   而是决定：
+       保留 CSMAR scope peer 并把 peer-validity section 做扎实；
+       或转向 annual-report peers，重新寻找更稳的 Y/机制。
+
+7. 人工抽查 gate 已经完成两版 LLM-assisted coding。
+   但严格意义上的 Cao et al. 风格 LLM-generated peers 还没有构造成全量
+   peer network；当前 LLM 证据是 peer-system validation coding，
+   不是一个独立 LLM-peer network。
+
+8. 已经为 LLM-generated / LLM-re-ranked peers 准备了 code-safe 候选菜单：
+       200 focal firms
+       5,094 candidate rows
+   候选来源包括：
+       annual same-industry text Top10
+       CSMAR scope Top10
+       annual global AI-word-stripped Top10
+       random same-industry Top10
+
+   当前已用 semantic re-ranking 构造出一版 LLM/semantic Top5 peer network，
+   并完成 matched 200-focal return/fundamental gate。
+
+9. LLM/semantic re-ranked peer gate：
+
+   Matched 200-focal return comovement:
+
+       annual same-industry text Top5       = 0.4359
+       LLM/semantic re-ranked Top5          = 0.3998
+       annual global AI-word-stripped Top5  = 0.3939
+       CSMAR scope Top5                     = 0.3462
+       random same-industry Top5            = 0.3118
+       low-similarity same-industry Top5    = 0.2432
+
+   Matched 200-focal fundamentals:
+
+       LLM/semantic re-ranked Top5:
+           sales-growth corr = 0.2169
+           gross-margin corr = 0.4763
+
+       CSMAR scope Top5:
+           sales-growth corr = 0.2185
+           gross-margin corr = 0.1955
+
+       annual same-industry text Top5:
+           sales-growth corr = -0.0373
+           gross-margin corr = 0.5217
+
+   解释：
+       LLM/semantic re-ranked peers 在 return gate 中排第二，
+       仅低于年报同业文本；在 fundamentals gate 中比 CSMAR 更均衡。
+       这说明 LLM peer 不是摆设，可以作为非常有力的 measurement benchmark。
+```
+
+截至 2026-05-31 的 peer-validity gate 最终判断：
+
+```text
+最有文献支撑 / measurement-clean winner:
+    annual same-industry annual-report text peers
+
+最均衡的可解释替代:
+    code-safe LLM/semantic re-ranked peers
+
+能保留当前显著 GenAI PeerCAR 结果:
+    old CSMAR scope peers
+
+作为 placebo / falsification:
+    random same-industry peers
+    low-similarity same-industry peers
+
+论文策略：
+    若追求最干净测度，应改用 annual / LLM peers 并重跑主效应；
+    若保留当前主结果，只能用 CSMAR scope peers，并把 annual / LLM peers
+    作为 measurement benchmark，承认主结果对 peer definition 敏感。
+```
+
+## 2026-05-30 产品市场近邻测度升级与替换检验
+
+已新增一套更接近 Hoberg and Phillips (2016, JPE) 的年报业务文本产品市场近邻构造。
+
+```text
+scripts/build_v12_annual_report_product_peers_20260530.py
+scripts/run_v12_annual_report_peer_main_effect_20260530.py
+docs/measurement/11_product_market_peer_network_hoberg_phillips_style_20260530.md
+docs/measurement/12_peer_definition_literature_audit_20260530.md
+docs/empirical_runs/67_v12_annual_report_peer_main_effect_20260530.md
+docs/empirical_runs/68_v12_annual_peer_baseline_effect_20260530.md
+results/v12_annual_report_product_peers_20260530/
+results/v12_annual_report_peer_main_effect_20260530/
+results/v12_annual_peer_baseline_effect_20260530/
+```
+
+核心变化：
+
+```text
+旧口径：
+    CSMAR 公司基本资料中的 MAINBUSSINESS + BusinessScope
+
+新口径：
+    A 股年报 TXT 中的“报告期内公司从事的主要业务 / 主要业务 / 经营情况讨论与分析”等业务章节
+    -> 中文 char 2-3 gram TF-IDF
+    -> firm-pair cosine similarity
+    -> Top5 / Top10 product-market peers
+```
+
+当前输出覆盖：
+
+```text
+event library:
+    20,165 focal GenAI disclosure events
+
+annual-report business text:
+    26,312 firm-year rows, 2021-2025
+
+event-peer panel:
+    annual_report_peer_event_global_top10.csv              197,540 rows
+    annual_report_peer_event_same_industry_d_top10.csv     196,369 rows
+    annual_report_peer_event_global_ai_stripped_top10.csv  197,540 rows
+```
+
+替换主回归后的结果：
+
+```text
+规格：
+    PeerCAR[0,+1]
+    ~ AIActivePeer
+    + Specificity_z × AIActivePeer
+    + pre-window peer CAR controls
+    + event FE
+    + peer industry-week FE
+    two-way clustered by event and peer firm
+
+annual same IndustryNameD Top5:
+    ext_any              coef =  0.001020, p = 0.144
+    current_text_history coef =  0.000392, p = 0.570
+
+annual global Top5:
+    ext_any              coef = -0.000132, p = 0.875
+    current_text_history coef = -0.001227, p = 0.168
+
+annual global AI-word-stripped Top5:
+    ext_any              coef = -0.000490, p = 0.551
+    current_text_history coef = -0.001366, p = 0.124
+```
+
+GenAI 公告本身的平均 peer 反应：
+
+```text
+annual same IndustryNameD Top5:
+    PeerCAR[0,+1] mean =  0.000209, p = 0.676
+
+annual global Top5:
+    PeerCAR[0,+1] mean =  0.000512, p = 0.325
+
+annual global AI-word-stripped Top5:
+    PeerCAR[0,+1] mean =  0.000580, p = 0.265
+
+Top5 - ranks 6-10:
+    annual same IndustryNameD:          coef = 0.000664, p = 0.137
+    annual global:                      coef = 0.000786, p = 0.104
+    annual global AI-word-stripped:     coef = 0.001172, p = 0.016
+```
+
+也就是说，年报 peer 网络下“GenAI 公告本身冲击竞品股价”的平均效应不是负向；
+如果有差异，反而是 Top5 相对后排 peer 更正向。这不能支撑 competitive-threat 主故事。
+
+当前判断：
+
+```text
+1. 这一步解决“产品市场近邻是不是我们自己提出”的文献锚问题：
+   写法应为 Hoberg-Phillips-style Chinese A-share product-market peer network。
+
+2. 但年报 peer 网络替换主回归后，旧 CSMAR 业务范围 Top5 的负向主效应没有复制。
+   同细分行业年报 Top5 甚至为正向不显著；global / AI-word-stripped global Top5
+   为负但远不显著。
+
+3. 中文年报业务章节比美国 10-K Item 1 更嘈杂。
+   全市场 Top10 偶有模板语言导致的跨行业误配；同 IndustryNameD 内 Top5 更可解释，
+   但主效应也没有通过。
+
+4. 因此不能把年报业务文本口径直接升为主 peer 定义。
+   当前更诚实的处理是：
+
+       主结果：旧 CSMAR business-scope / main-business text Top5
+       方法锚：解释为 Hoberg-Phillips-style text-based product-market peers
+       稳健性：年报业务文本 peer network 替换检验，但承认结果不复制
+
+5. AI-word-stripped annual network 与原 annual-report global Top5 高度重合：
+       mean overlap count = 4.74 / 5
+       median overlap count = 5 / 5
+
+   这说明产品市场相似度不是单纯由“AI / 智能 / 算法 / 大模型”等词驱动。
+
+6. 新年报口径与旧 CSMAR 经营范围口径 Top5 重合度较低：
+       mean overlap count ≈ 1.01 / 5
+
+   这已经不是单纯“替代数据源”的问题，而是主结果对 peer network definition 敏感。
+   论文如果继续写，必须把 product-market peer measurement 作为核心风险点处理。
+
+7. 文献上可防守的 peer 系统包括：
+       行业同业；
+       Hoberg-Phillips / TNIC-style 文本产品市场同业；
+       search-based peers；
+       common analyst peers；
+       technological peers；
+       LLM-generated peers。
+
+   当前项目最接近的是 Hoberg-Phillips-style 文本产品市场同业。
+   但由于年报替换检验失败，旧 CSMAR scope Top5 不能再被无条件包装为“稳健竞品”。
+   下一步若继续，必须先做 peer-validity validation，而不是继续堆主回归。
+```
 
 ## 2026-05-28 最新判断
 

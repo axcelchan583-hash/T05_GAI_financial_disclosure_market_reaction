@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#111"/>
+    </marker>
+    <style>
+      .box { fill: #fff; stroke: #111; stroke-width: 2.2; }
+      .box2 { fill: #f7f7f7; stroke: #111; stroke-width: 2.2; }
+      .dash { fill: #fff; stroke: #111; stroke-width: 2.2; stroke-dasharray: 8 6; }
+      .line { stroke: #111; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .thin { stroke: #111; stroke-width: 1.8; fill: none; marker-end: url(#arrow); }
+      .neg { stroke: #111; stroke-width: 2.8; fill: none; marker-end: url(#arrow); }
+      .txt { font-family: Arial, "Noto Sans CJK SC", "PingFang SC", sans-serif; fill: #111; font-size: 30px; }
+      .small { font-family: Arial, "Noto Sans CJK SC", "PingFang SC", sans-serif; fill: #111; font-size: 23px; }
+      .tiny { font-family: Arial, "Noto Sans CJK SC", "PingFang SC", sans-serif; fill: #111; font-size: 20px; }
+      .micro { font-family: Arial, "Noto Sans CJK SC", "PingFang SC", sans-serif; fill: #111; font-size: 17px; }
+      .title { font-family: Arial, "Noto Sans CJK SC", "PingFang SC", sans-serif; font-weight: 700; fill: #111; font-size: 38px; }
+      .label { font-family: Arial, "Noto Sans CJK SC", "PingFang SC", sans-serif; font-weight: 700; fill: #111; font-size: 26px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="940" fill="#fff"/>
+  <text x="800" y="62" text-anchor="middle" class="title">生成式AI披露具体性与产品市场同行重估：理论框架</text>
+
+  <!-- Left: focal disclosure -->
+  <rect x="70" y="145" rx="10" ry="10" width="330" height="205" class="box"/>
+  <text x="235" y="192" text-anchor="middle" class="label">焦点公司披露事件</text>
+  <text x="235" y="235" text-anchor="middle" class="small">首次 GenAI / 大模型披露</text>
+  <text x="235" y="272" text-anchor="middle" class="small">互动平台 / IR / 公告文本</text>
+  <text x="235" y="314" text-anchor="middle" class="tiny">事件层面：firm i, date t</text>
+
+  <rect x="70" y="435" rx="10" ry="10" width="330" height="215" class="box2"/>
+  <text x="235" y="482" text-anchor="middle" class="label">主 X</text>
+  <text x="235" y="525" text-anchor="middle" class="small">生成式AI披露具体性</text>
+  <text x="235" y="562" text-anchor="middle" class="tiny">参考 Hope, Hu and Lu (2016)</text>
+  <text x="235" y="594" text-anchor="middle" class="tiny">具体实体 + 数量/日期/金额细节</text>
+  <text x="235" y="626" text-anchor="middle" class="tiny">除以 GenAI 相关句段长度</text>
+
+  <!-- Theory middle -->
+  <rect x="505" y="145" rx="10" ry="10" width="330" height="225" class="box"/>
+  <text x="670" y="192" text-anchor="middle" class="label">信息精度提高</text>
+  <text x="670" y="235" text-anchor="middle" class="small">具体、可核验、公司特定</text>
+  <text x="670" y="272" text-anchor="middle" class="small">降低模板化披露嫌疑</text>
+  <text x="670" y="309" text-anchor="middle" class="micro">Disclosure specificity</text>
+  <text x="670" y="332" text-anchor="middle" class="micro">→ information precision</text>
+
+  <rect x="505" y="435" rx="10" ry="10" width="330" height="225" class="box"/>
+  <text x="670" y="482" text-anchor="middle" class="label">焦点公司战略信号</text>
+  <text x="670" y="522" text-anchor="middle" class="small">投资者更新</text>
+  <text x="670" y="555" text-anchor="middle" class="small">焦点公司 AI 承诺</text>
+  <text x="670" y="590" text-anchor="middle" class="tiny">产品 / 场景 / 客户 / 部署</text>
+  <text x="670" y="622" text-anchor="middle" class="tiny">不是能力本身，而是文本信号</text>
+
+  <!-- Competing channels -->
+  <rect x="940" y="120" rx="10" ry="10" width="360" height="175" class="dash"/>
+  <text x="1120" y="166" text-anchor="middle" class="label">行业验证效应</text>
+  <text x="1120" y="209" text-anchor="middle" class="small">Category validation</text>
+  <text x="1120" y="247" text-anchor="middle" class="tiny">算力 / 供应链 / 生态需求被验证</text>
+
+  <rect x="940" y="375" rx="10" ry="10" width="360" height="210" class="box2"/>
+  <text x="1120" y="424" text-anchor="middle" class="label">竞争风险重估</text>
+  <text x="1120" y="467" text-anchor="middle" class="tiny">Competitive-risk reassessment</text>
+  <text x="1120" y="506" text-anchor="middle" class="tiny">产品市场近邻</text>
+  <text x="1120" y="536" text-anchor="middle" class="tiny">被投资者横向比较</text>
+  <text x="1120" y="564" text-anchor="middle" class="micro">具体披露意味着相对竞争压力</text>
+
+  <!-- Moderators -->
+  <rect x="940" y="680" rx="10" ry="10" width="360" height="150" class="box"/>
+  <text x="1120" y="724" text-anchor="middle" class="label">边界条件</text>
+  <text x="1120" y="766" text-anchor="middle" class="small">Top5 产品市场近邻</text>
+  <text x="1120" y="802" text-anchor="middle" class="small">事前 AI-active peer</text>
+
+  <!-- Outcome -->
+  <rect x="1360" y="365" rx="10" ry="10" width="210" height="230" class="box"/>
+  <text x="1465" y="415" text-anchor="middle" class="label">主 Y</text>
+  <text x="1465" y="459" text-anchor="middle" class="small">PeerCAR</text>
+  <text x="1465" y="493" text-anchor="middle" class="small">[0,+1]</text>
+  <text x="1465" y="536" text-anchor="middle" class="tiny">同行短窗口</text>
+  <text x="1465" y="566" text-anchor="middle" class="tiny">市场重估</text>
+
+  <!-- Model box -->
+  <rect x="145" y="750" rx="8" ry="8" width="680" height="125" class="dash"/>
+  <text x="485" y="790" text-anchor="middle" class="small">识别：同一焦点事件内横截面异质性</text>
+  <text x="485" y="823" text-anchor="middle" class="micro">PeerCAR = β · Specificity × AIActivePeer</text>
+  <text x="485" y="848" text-anchor="middle" class="micro">+ Event FE + Peer industry-week FE</text>
+  <text x="485" y="869" text-anchor="middle" class="micro">+ pre-window controls</text>
+
+  <!-- Arrows -->
+  <path d="M400 245 L505 245" class="line"/>
+  <path d="M670 350 L670 435" class="line"/>
+  <path d="M835 525 C880 525 895 480 940 480" class="line"/>
+  <path d="M835 245 C890 245 895 205 940 205" class="thin"/>
+  <path d="M1300 480 L1360 480" class="neg"/>
+  <path d="M1300 205 C1390 205 1440 285 1465 365" class="thin"/>
+  <path d="M1120 680 L1120 585" class="line"/>
+  <path d="M400 542 L505 542" class="line"/>
+
+  <!-- Signs -->
+  <text x="1340" y="455" text-anchor="middle" class="label">-</text>
+  <text x="1368" y="257" text-anchor="middle" class="tiny">0 / +</text>
+
+</svg>

@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1080" viewBox="0 0 1800 1080">
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#111"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<style>text{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;fill:#111;}</style>
+<text x="900.0" y="58.0" font-size="34" font-weight="700" text-anchor="middle" fill="#111">
+<tspan x="900.0" dy="0.0">T05 识别框架：八个必须防守的测度与识别门槛</tspan>
+</text>
+<text x="900.0" y="104.0" font-size="23" font-weight="400" text-anchor="middle" fill="#111">
+<tspan x="900.0" dy="0.0">核心结论：GenAI 披露具体性与 AI-active 直接竞品的短窗相对重估相关；不是强因果或真实业务挤出。</tspan>
+</text>
+<rect x="60" y="130" width="220" height="54" fill="#f7f7f7" stroke="#111" stroke-width="1.6"/>
+<text x="170.0" y="156.0" font-size="21" font-weight="600" text-anchor="middle" fill="#111">
+<tspan x="170.0" dy="0.0">焦点公司 GenAI 披露</tspan>
+</text>
+<line x1="285" y1="157" x2="310" y2="157" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="320" y="130" width="220" height="54" fill="#f7f7f7" stroke="#111" stroke-width="1.6"/>
+<text x="430.0" y="156.0" font-size="21" font-weight="600" text-anchor="middle" fill="#111">
+<tspan x="430.0" dy="0.0">文本具体性 X</tspan>
+</text>
+<line x1="545" y1="157" x2="615" y2="157" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="625" y="130" width="220" height="54" fill="#f7f7f7" stroke="#111" stroke-width="1.6"/>
+<text x="735.0" y="156.0" font-size="21" font-weight="600" text-anchor="middle" fill="#111">
+<tspan x="735.0" dy="0.0">直接竞品 + AIActive</tspan>
+</text>
+<line x1="850" y1="157" x2="975" y2="157" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="985" y="130" width="220" height="54" fill="#f7f7f7" stroke="#111" stroke-width="1.6"/>
+<text x="1095.0" y="156.0" font-size="21" font-weight="600" text-anchor="middle" fill="#111">
+<tspan x="1095.0" dy="0.0">PeerCAR[0,+1] Y</tspan>
+</text>
+<line x1="1210" y1="157" x2="1320" y2="157" stroke="#111" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="1330" y="130" width="220" height="54" fill="#f7f7f7" stroke="#111" stroke-width="1.6"/>
+<text x="1440.0" y="156.0" font-size="21" font-weight="600" text-anchor="middle" fill="#111">
+<tspan x="1440.0" dy="0.0">竞争风险/类别验证</tspan>
+</text>
+<rect x="70.0" y="210.0" width="388.0" height="300.0" fill="#fff" stroke="#111" stroke-width="2.2"/>
+<circle cx="100.0" cy="241.0" r="18" fill="#111"/>
+<text x="100.0" y="249.0" font-size="23" font-weight="700" text-anchor="middle" fill="#fff">1</text>
+<text x="130.0" y="249.0" font-size="25" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="130.0" dy="0.0">GenAI 事件筛选</tspan>
+</text>
+<text x="94.0" y="294.0" font-size="19" font-weight="400" text-anchor="start" fill="#111">
+<tspan x="94.0" dy="0.0">• 只识别公司披露文本中的</tspan>
+<tspan x="94.0" dy="24.7">GenAI/AIGC/大模型语境</tspan>
+<tspan x="94.0" dy="24.7">• 不把普通“人工智能”单独当事件</tspan>
+</text>
+<line x1="92.0" y1="381.0" x2="436.0" y2="381.0" stroke="#777" stroke-width="1"/>
+<text x="94.0" y="403.0" font-size="17" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="94.0" dy="0.0">文献/证据支撑</tspan>
+</text>
+<text x="94.0" y="429.0" font-size="15" font-weight="400" text-anchor="start" fill="#333">
+<tspan x="94.0" dy="0.0">Cheng et al. 2019</tspan>
+<tspan x="94.0" dy="17.2">Lee &amp; Zhong 2022</tspan>
+</text>
+<text x="94.0" y="486.0" font-size="17" font-weight="600" text-anchor="start" fill="#111">
+<tspan x="94.0" dy="0.0">风险：generic AI 混入</tspan>
+</text>
+<rect x="494.0" y="210.0" width="388.0" height="300.0" fill="#fff" stroke="#111" stroke-width="2.2"/>
+<circle cx="524.0" cy="241.0" r="18" fill="#111"/>
+<text x="524.0" y="249.0" font-size="23" font-weight="700" text-anchor="middle" fill="#fff">2</text>
+<text x="554.0" y="249.0" font-size="25" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="554.0" dy="0.0">X：披露具体性</tspan>
+</text>
+<text x="518.0" y="294.0" font-size="19" font-weight="400" text-anchor="start" fill="#111">
+<tspan x="518.0" dy="0.0">• Specificity_z =</tspan>
+<tspan x="518.0" dy="24.7">可观察、公司特定、可核验细节密度</tspan>
+<tspan x="518.0" dy="24.7">• 不是真实 AI 能力或商业化成功</tspan>
+</text>
+<line x1="516.0" y1="381.0" x2="860.0" y2="381.0" stroke="#777" stroke-width="1"/>
+<text x="518.0" y="403.0" font-size="17" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="518.0" dy="0.0">文献/证据支撑</tspan>
+</text>
+<text x="518.0" y="429.0" font-size="15" font-weight="400" text-anchor="start" fill="#333">
+<tspan x="518.0" dy="0.0">Hope, Hu &amp; Lu 2016</tspan>
+<tspan x="518.0" dy="17.2">Cheng et al. 2019</tspan>
+</text>
+<text x="518.0" y="486.0" font-size="17" font-weight="600" text-anchor="start" fill="#111">
+<tspan x="518.0" dy="0.0">风险：construct validity</tspan>
+</text>
+<rect x="918.0" y="210.0" width="388.0" height="300.0" fill="#fff" stroke="#111" stroke-width="2.2"/>
+<circle cx="948.0" cy="241.0" r="18" fill="#111"/>
+<text x="948.0" y="249.0" font-size="23" font-weight="700" text-anchor="middle" fill="#fff">3</text>
+<text x="978.0" y="249.0" font-size="25" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="978.0" dy="0.0">X：文本混杂控制</tspan>
+</text>
+<text x="942.0" y="294.0" font-size="19" font-weight="400" text-anchor="start" fill="#111">
+<tspan x="942.0" dy="0.0">• 控制长度、问题长度、AI</tspan>
+<tspan x="942.0" dy="24.7">词频、source、披露类型</tspan>
+<tspan x="942.0" dy="24.7">• 证明不是 verbosity 或 AI buzzword</tspan>
+</text>
+<line x1="940.0" y1="381.0" x2="1284.0" y2="381.0" stroke="#777" stroke-width="1"/>
+<text x="942.0" y="403.0" font-size="17" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="942.0" dy="0.0">文献/证据支撑</tspan>
+</text>
+<text x="942.0" y="429.0" font-size="15" font-weight="400" text-anchor="start" fill="#333">
+<tspan x="942.0" dy="0.0">Hope et al. 2016</tspan>
+<tspan x="942.0" dy="17.2">Basnet et al. 2025</tspan>
+</text>
+<text x="942.0" y="486.0" font-size="17" font-weight="600" text-anchor="start" fill="#111">
+<tspan x="942.0" dy="0.0">风险：文本风格替代</tspan>
+</text>
+<rect x="1342.0" y="210.0" width="388.0" height="300.0" fill="#fff" stroke="#111" stroke-width="2.2"/>
+<circle cx="1372.0" cy="241.0" r="18" fill="#111"/>
+<text x="1372.0" y="249.0" font-size="23" font-weight="700" text-anchor="middle" fill="#fff">4</text>
+<text x="1402.0" y="249.0" font-size="25" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="1402.0" dy="0.0">Peer：直接竞品识别</tspan>
+</text>
+<text x="1366.0" y="294.0" font-size="19" font-weight="400" text-anchor="start" fill="#111">
+<tspan x="1366.0" dy="0.0">• 传统年报文本 peer 不复制主效应</tspan>
+<tspan x="1366.0" dy="24.7">• 主口径为候选集内 LLM-screened direct</tspan>
+<tspan x="1366.0" dy="24.7">peers</tspan>
+</text>
+<line x1="1364.0" y1="381.0" x2="1708.0" y2="381.0" stroke="#777" stroke-width="1"/>
+<text x="1366.0" y="403.0" font-size="17" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="1366.0" dy="0.0">文献/证据支撑</tspan>
+</text>
+<text x="1366.0" y="429.0" font-size="15" font-weight="400" text-anchor="start" fill="#333">
+<tspan x="1366.0" dy="0.0">Hoberg &amp; Phillips 2016</tspan>
+<tspan x="1366.0" dy="17.2">任宏达、王琨 2019</tspan>
+<tspan x="1366.0" dy="17.2">刘昌阳等 2020</tspan>
+<tspan x="1366.0" dy="17.2">Cao et al. 2025</tspan>
+</text>
+<text x="1366.0" y="486.0" font-size="17" font-weight="600" text-anchor="start" fill="#111">
+<tspan x="1366.0" dy="0.0">风险最高：peer 自造</tspan>
+</text>
+<rect x="70.0" y="544.0" width="388.0" height="300.0" fill="#fff" stroke="#111" stroke-width="2.2"/>
+<circle cx="100.0" cy="575.0" r="18" fill="#111"/>
+<text x="100.0" y="583.0" font-size="23" font-weight="700" text-anchor="middle" fill="#fff">5</text>
+<text x="130.0" y="583.0" font-size="25" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="130.0" dy="0.0">AIActivePeer</tspan>
+</text>
+<text x="94.0" y="628.0" font-size="19" font-weight="400" text-anchor="start" fill="#111">
+<tspan x="94.0" dy="0.0">• 事件日前 t-5 可观察外部 AI 证据</tspan>
+<tspan x="94.0" dy="24.7">• prior CAC/AI patent/AI</tspan>
+<tspan x="94.0" dy="24.7">hiring；text-history 仅稳健性</tspan>
+</text>
+<line x1="92.0" y1="715.0" x2="436.0" y2="715.0" stroke="#777" stroke-width="1"/>
+<text x="94.0" y="737.0" font-size="17" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="94.0" dy="0.0">文献/证据支撑</tspan>
+</text>
+<text x="94.0" y="763.0" font-size="15" font-weight="400" text-anchor="start" fill="#333">
+<tspan x="94.0" dy="0.0">Babina et al. 2024</tspan>
+<tspan x="94.0" dy="17.2">Kogan et al. 2017</tspan>
+<tspan x="94.0" dy="17.2">CAC registry</tspan>
+</text>
+<text x="94.0" y="820.0" font-size="17" font-weight="600" text-anchor="start" fill="#111">
+<tspan x="94.0" dy="0.0">风险：look-ahead/同源</tspan>
+</text>
+<rect x="494.0" y="544.0" width="388.0" height="300.0" fill="#fff" stroke="#111" stroke-width="2.2"/>
+<circle cx="524.0" cy="575.0" r="18" fill="#111"/>
+<text x="524.0" y="583.0" font-size="23" font-weight="700" text-anchor="middle" fill="#fff">6</text>
+<text x="554.0" y="583.0" font-size="25" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="554.0" dy="0.0">Y：PeerCAR[0,+1]</tspan>
+</text>
+<text x="518.0" y="628.0" font-size="19" font-weight="400" text-anchor="start" fill="#111">
+<tspan x="518.0" dy="0.0">• 同行短窗 signed market-model abnormal</tspan>
+<tspan x="518.0" dy="24.7">return</tspan>
+<tspan x="518.0" dy="24.7">• 衡量资本市场相对重估，不是真实业务挤出</tspan>
+</text>
+<line x1="516.0" y1="715.0" x2="860.0" y2="715.0" stroke="#777" stroke-width="1"/>
+<text x="518.0" y="737.0" font-size="17" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="518.0" dy="0.0">文献/证据支撑</tspan>
+</text>
+<text x="518.0" y="763.0" font-size="15" font-weight="400" text-anchor="start" fill="#333">
+<tspan x="518.0" dy="0.0">Beaver 1968</tspan>
+<tspan x="518.0" dy="17.2">MacKinlay 1997</tspan>
+<tspan x="518.0" dy="17.2">Kothari &amp; Warner 2007</tspan>
+</text>
+<text x="518.0" y="820.0" font-size="17" font-weight="600" text-anchor="start" fill="#111">
+<tspan x="518.0" dy="0.0">风险：公告污染</tspan>
+</text>
+<rect x="918.0" y="544.0" width="388.0" height="300.0" fill="#fff" stroke="#111" stroke-width="2.2"/>
+<circle cx="948.0" cy="575.0" r="18" fill="#111"/>
+<text x="948.0" y="583.0" font-size="23" font-weight="700" text-anchor="middle" fill="#fff">7</text>
+<text x="978.0" y="583.0" font-size="25" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="978.0" dy="0.0">识别模型</tspan>
+</text>
+<text x="942.0" y="628.0" font-size="19" font-weight="400" text-anchor="start" fill="#111">
+<tspan x="942.0" dy="0.0">• Event FE 下比较同一事件内 AI-active 与</tspan>
+<tspan x="942.0" dy="24.7">non-AI-active peers</tspan>
+<tspan x="942.0" dy="24.7">• 加入 peer industry-week FE 与</tspan>
+<tspan x="942.0" dy="24.7">pre-window CAR controls</tspan>
+</text>
+<line x1="940.0" y1="715.0" x2="1284.0" y2="715.0" stroke="#777" stroke-width="1"/>
+<text x="942.0" y="737.0" font-size="17" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="942.0" dy="0.0">文献/证据支撑</tspan>
+</text>
+<text x="942.0" y="763.0" font-size="15" font-weight="400" text-anchor="start" fill="#333">
+<tspan x="942.0" dy="0.0">Foster 1981</tspan>
+<tspan x="942.0" dy="17.2">Lang &amp; Stulz 1992</tspan>
+<tspan x="942.0" dy="17.2">Petersen 2009</tspan>
+</text>
+<text x="942.0" y="820.0" font-size="17" font-weight="600" text-anchor="start" fill="#111">
+<tspan x="942.0" dy="0.0">风险：不是 DID/IV</tspan>
+</text>
+<rect x="1342.0" y="544.0" width="388.0" height="300.0" fill="#fff" stroke="#111" stroke-width="2.2"/>
+<circle cx="1372.0" cy="575.0" r="18" fill="#111"/>
+<text x="1372.0" y="583.0" font-size="23" font-weight="700" text-anchor="middle" fill="#fff">8</text>
+<text x="1402.0" y="583.0" font-size="25" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="1402.0" dy="0.0">理论解释边界</tspan>
+</text>
+<text x="1366.0" y="628.0" font-size="19" font-weight="400" text-anchor="start" fill="#111">
+<tspan x="1366.0" dy="0.0">• 主线：competitive-risk reassessment</tspan>
+<tspan x="1366.0" dy="24.7">• 边界：category</tspan>
+<tspan x="1366.0" dy="24.7">validation/supply-chain exposure 可为正</tspan>
+</text>
+<line x1="1364.0" y1="715.0" x2="1708.0" y2="715.0" stroke="#777" stroke-width="1"/>
+<text x="1366.0" y="737.0" font-size="17" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="1366.0" dy="0.0">文献/证据支撑</tspan>
+</text>
+<text x="1366.0" y="763.0" font-size="15" font-weight="400" text-anchor="start" fill="#333">
+<tspan x="1366.0" dy="0.0">Verrecchia 1983</tspan>
+<tspan x="1366.0" dy="17.2">Lang &amp; Stulz 1992</tspan>
+<tspan x="1366.0" dy="17.2">Qian et al. 2025</tspan>
+</text>
+<text x="1366.0" y="820.0" font-size="17" font-weight="600" text-anchor="start" fill="#111">
+<tspan x="1366.0" dy="0.0">风险：business stealing 过度</tspan>
+</text>
+<rect x="70" y="912" width="1660" height="104" fill="#f7f7f7" stroke="#111" stroke-width="2"/>
+<text x="98.0" y="947.0" font-size="22" font-weight="700" text-anchor="start" fill="#111">
+<tspan x="98.0" dy="0.0">主规格</tspan>
+</text>
+<text x="200.0" y="947.0" font-size="20" font-weight="400" text-anchor="start" fill="#111">
+<tspan x="200.0" dy="0.0">PeerCAR[0,+1] = β · Specificity_z × AIActivePeer + AIActivePeer + pre-window CAR + Event FE + Peer industry-week FE</tspan>
+</text>
+<text x="200.0" y="987.0" font-size="20" font-weight="400" text-anchor="start" fill="#111">
+<tspan x="200.0" dy="0.0">标准误：event_id × peer_code 双向聚类。识别：within-event heterogeneity，不是 DID / IV。</tspan>
+</text>
+<text x="900.0" y="1052.0" font-size="18" font-weight="400" text-anchor="middle" fill="#111">
+<tspan x="900.0" dy="0.0">更新：2026-06-01｜黑白组会版｜传统中文年报文本 peer 仅作文献基准，当前主口径为 LLM-screened direct peers。</tspan>
+</text>
+</svg>

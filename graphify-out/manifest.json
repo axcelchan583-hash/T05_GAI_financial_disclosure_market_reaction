@@ -1,0 +1,357 @@
+{
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/claude_project/3/repro_scripts/build_specificity_validation_sample_20260525.py": {
+    "mtime": 1779704303.9072204,
+    "ast_hash": "e20023ee2e4ff5052217b5b0100e0c99",
+    "semantic_hash": "e20023ee2e4ff5052217b5b0100e0c99"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/claude_project/3/repro_scripts/run_v6_final_review_checks_20260525.py": {
+    "mtime": 1779698042.9921834,
+    "ast_hash": "88e82513020bbb7b22f7df4130619c4e",
+    "semantic_hash": "88e82513020bbb7b22f7df4130619c4e"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/claude_project/3/repro_scripts/run_v6_focal_good_news_pretrend_checks_20260525.py": {
+    "mtime": 1779702028.0487394,
+    "ast_hash": "64ba4cf5dddb21632d376e883a73c156",
+    "semantic_hash": "64ba4cf5dddb21632d376e883a73c156"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/build_csmar_genai_event_library_20260523.py": {
+    "mtime": 1779541957.3837383,
+    "ast_hash": "9c77fe0bfc78ed9b42885f1ca7701bd7",
+    "semantic_hash": "9c77fe0bfc78ed9b42885f1ca7701bd7"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/build_industry_binary_exposure.py": {
+    "mtime": 1779498765.1998675,
+    "ast_hash": "773e63f5af5e7f14fe3fce1c1b95b682",
+    "semantic_hash": "773e63f5af5e7f14fe3fce1c1b95b682"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/build_plan_a_irqa_event_sample.py": {
+    "mtime": 1779421432.9510593,
+    "ast_hash": "20f3bc25017c95ef764873dcd24e0186",
+    "semantic_hash": "20f3bc25017c95ef764873dcd24e0186"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/build_specificity_validation_sample_20260525.py": {
+    "mtime": 1779704030.8900187,
+    "ast_hash": "e20023ee2e4ff5052217b5b0100e0c99",
+    "semantic_hash": "e20023ee2e4ff5052217b5b0100e0c99"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/build_v12_annual_report_product_peers_20260530.py": {
+    "mtime": 1780200282.4126158,
+    "ast_hash": "0644638dfd2fa73947b68bbd73e84202",
+    "semantic_hash": "0644638dfd2fa73947b68bbd73e84202"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/build_v13_llm_peer_candidate_menu_20260531.py": {
+    "mtime": 1780220836.1990654,
+    "ast_hash": "a1eaa3780d5b3ba5091f0d9930e98e4a",
+    "semantic_hash": "a1eaa3780d5b3ba5091f0d9930e98e4a"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/build_v22_chinese_literature_product_peers_20260601.py": {
+    "mtime": 1780293460.3715527,
+    "ast_hash": "ffc7cb700ce3169492d9d5acacd3aea9",
+    "semantic_hash": "ffc7cb700ce3169492d9d5acacd3aea9"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/build_v24_qian_initiative_event_rebuild_20260602.py": {
+    "mtime": 1780391635.189358,
+    "ast_hash": "f9a5775e3a96f2f05f683860cf1614dd",
+    "semantic_hash": "f9a5775e3a96f2f05f683860cf1614dd"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/build_v4_peer_spillover_x_pilot.py": {
+    "mtime": 1779423798.1251829,
+    "ast_hash": "2e3a37b879d06dd926683dbc80e2f390",
+    "semantic_hash": "2e3a37b879d06dd926683dbc80e2f390"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/build_v6_external_ai_evidence_dates_20260524.py": {
+    "mtime": 1779672693.040759,
+    "ast_hash": "3337648d9943947b98dd48f24ef76d6c",
+    "semantic_hash": "3337648d9943947b98dd48f24ef76d6c"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/download_cac_genai_service_filing.py": {
+    "mtime": 1779154671.4957018,
+    "ast_hash": "51e408066f246eb4dd4664c70b94f587",
+    "semantic_hash": "51e408066f246eb4dd4664c70b94f587"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/extract_cac_genai_service_filing_tables.py": {
+    "mtime": 1779154903.5367854,
+    "ast_hash": "8606045ec2d23a9245eee09072520a32",
+    "semantic_hash": "8606045ec2d23a9245eee09072520a32"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/fetch_annual_report_pending.py": {
+    "mtime": 1777337867.3737972,
+    "ast_hash": "8340c0016e25c24de129e4ac1ff94533",
+    "semantic_hash": "8340c0016e25c24de129e4ac1ff94533"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/measurement/build_genai_disclosure_concreteness.py": {
+    "mtime": 1780021160.184341,
+    "ast_hash": "3ce8b88c48a69e0855364baa369dcec9",
+    "semantic_hash": "3ce8b88c48a69e0855364baa369dcec9"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_csmar_v5_1_response_smoke_20260523.py": {
+    "mtime": 1779542366.1304216,
+    "ast_hash": "4158a6d2ef7c947554a1314037a44c6d",
+    "semantic_hash": "4158a6d2ef7c947554a1314037a44c6d"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_high_pre_risk_burden_binary_pilot.py": {
+    "mtime": 1779498765.200808,
+    "ast_hash": "a2863b2872c18ceb8d6288c3761354d3",
+    "semantic_hash": "a2863b2872c18ceb8d6288c3761354d3"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_specificity_machine_coding_20260525.py": {
+    "mtime": 1779704965.9662952,
+    "ast_hash": "88081f667e5640afdbe6650936ea4e9b",
+    "semantic_hash": "88081f667e5640afdbe6650936ea4e9b"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v11_genai_announcement_baseline_table_20260529.py": {
+    "mtime": 1780048446.0425901,
+    "ast_hash": "d1d1db25c90a55f878e43aa398de42cc",
+    "semantic_hash": "d1d1db25c90a55f878e43aa398de42cc"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v12_annual_peer_baseline_effect_20260530.py": {
+    "mtime": 1780201867.2623084,
+    "ast_hash": "3384e099fc4fb744e06a4d0a195b4350",
+    "semantic_hash": "3384e099fc4fb744e06a4d0a195b4350"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v12_annual_report_peer_main_effect_20260530.py": {
+    "mtime": 1780201083.6013103,
+    "ast_hash": "953dbced88372221cae827e1bbcceb3f",
+    "semantic_hash": "953dbced88372221cae827e1bbcceb3f"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v13_llm_reranked_peer_gate_20260531.py": {
+    "mtime": 1780221119.4476917,
+    "ast_hash": "2e3130c98d3e6ee139a06d9a91bbbdf8",
+    "semantic_hash": "2e3130c98d3e6ee139a06d9a91bbbdf8"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v13_peer_codex_manual_coding_20260531.py": {
+    "mtime": 1780219725.2204251,
+    "ast_hash": "b6b2a411e20e7825d31bf4bf8bc1cae6",
+    "semantic_hash": "b6b2a411e20e7825d31bf4bf8bc1cae6"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v13_peer_fundamental_validity_20260531.py": {
+    "mtime": 1780218643.4895048,
+    "ast_hash": "efdb2fe7f14a8883fd22f6c67c2300ee",
+    "semantic_hash": "efdb2fe7f14a8883fd22f6c67c2300ee"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v13_peer_manual_llm_gate_20260531.py": {
+    "mtime": 1780220122.5780904,
+    "ast_hash": "6c741acfc925680c0d4d4c57fe428dd0",
+    "semantic_hash": "6c741acfc925680c0d4d4c57fe428dd0"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v13_peer_validity_gate_20260531.py": {
+    "mtime": 1780218270.0034544,
+    "ast_hash": "4989b762ee7ae289965d7a8aa6e80c1b",
+    "semantic_hash": "4989b762ee7ae289965d7a8aa6e80c1b"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v14_data_processing_sensitivity_20260531.py": {
+    "mtime": 1780225421.2334065,
+    "ast_hash": "08ce4a6a6f973b389f777d54899a2382",
+    "semantic_hash": "08ce4a6a6f973b389f777d54899a2382"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v15_alternative_peer_definitions_20260531.py": {
+    "mtime": 1780226176.3979166,
+    "ast_hash": "5b85ecd0dea3ad0773fcbc831853ebb2",
+    "semantic_hash": "5b85ecd0dea3ad0773fcbc831853ebb2"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v16_full_semantic_peer_variants_20260531.py": {
+    "mtime": 1780227834.9439707,
+    "ast_hash": "17da8bcfafdf2984c413beb8679ca421",
+    "semantic_hash": "17da8bcfafdf2984c413beb8679ca421"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v16_full_semantic_reranked_peer_network_20260531.py": {
+    "mtime": 1780227715.7191048,
+    "ast_hash": "790c3ca243dc164a7fe064bd74bd5330",
+    "semantic_hash": "790c3ca243dc164a7fe064bd74bd5330"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v17_deepseek_flash_peer_coding_20260531.py": {
+    "mtime": 1780230328.5582979,
+    "ast_hash": "8229fd84f82718462c9f35390875ca12",
+    "semantic_hash": "8229fd84f82718462c9f35390875ca12"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v17_deepseek_flash_peer_main_effect_20260531.py": {
+    "mtime": 1780231795.445459,
+    "ast_hash": "4e7ab67e296603073fbf0978a90701bb",
+    "semantic_hash": "4e7ab67e296603073fbf0978a90701bb"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v18_cao_style_open_ended_deepseek_peers_20260531.py": {
+    "mtime": 1780236860.9653072,
+    "ast_hash": "7d661492312d9596d306800ebd281f88",
+    "semantic_hash": "7d661492312d9596d306800ebd281f88"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v19_deepseek_peer_validity_checks_20260531.py": {
+    "mtime": 1780238173.2331145,
+    "ast_hash": "301c98b957104036f6f45246e0f3d257",
+    "semantic_hash": "301c98b957104036f6f45246e0f3d257"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v20_deepseek_candidate_placebos_20260601.py": {
+    "mtime": 1780282693.2206993,
+    "ast_hash": "a4595c5377b46de6a3d5d634f6dc396c",
+    "semantic_hash": "a4595c5377b46de6a3d5d634f6dc396c"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v22_chinese_literature_peer_main_effect_20260601.py": {
+    "mtime": 1780293472.648545,
+    "ast_hash": "d292ae5b62db9dc03e2394aa6377962e",
+    "semantic_hash": "d292ae5b62db9dc03e2394aa6377962e"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v23_qian_supplier_replication_20260602.py": {
+    "mtime": 1780385532.588355,
+    "ast_hash": "014af0f7a500b1ef264b0ae9913a2853",
+    "semantic_hash": "014af0f7a500b1ef264b0ae9913a2853"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v3_event_library_expansion_diagnostic.py": {
+    "mtime": 1779419875.7729275,
+    "ast_hash": "2a7f45397705a4b7eb6b4ae754939831",
+    "semantic_hash": "2a7f45397705a4b7eb6b4ae754939831"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v3_genai_specificity_car_pilot.py": {
+    "mtime": 1779418491.441837,
+    "ast_hash": "258510e2bbda3d72398e8148b0e730d3",
+    "semantic_hash": "258510e2bbda3d72398e8148b0e730d3"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v3_supplier_spillover_sample_diagnostic.py": {
+    "mtime": 1779420542.4698346,
+    "ast_hash": "5a85ce9597ef0d55987225543f33446f",
+    "semantic_hash": "5a85ce9597ef0d55987225543f33446f"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v4_controls_and_ai_capability_heterogeneity.py": {
+    "mtime": 1779497407.4396648,
+    "ast_hash": "893d99b7d81bbc7b57b5f0ca8775d870",
+    "semantic_hash": "893d99b7d81bbc7b57b5f0ca8775d870"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v4_go_no_go_diagnostics.py": {
+    "mtime": 1779497564.1038616,
+    "ast_hash": "0a8566c6a55c7ba0ffcf815e06f02138",
+    "semantic_hash": "0a8566c6a55c7ba0ffcf815e06f02138"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v4_peer_spillover_csmar_event_study.py": {
+    "mtime": 1779459203.3242753,
+    "ast_hash": "15eed6e250ccc3646836122ba57a6302",
+    "semantic_hash": "15eed6e250ccc3646836122ba57a6302"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v4_peer_spillover_main_effect_pilot.py": {
+    "mtime": 1779427789.8805022,
+    "ast_hash": "ba09515d8335a8bffade210d4111459e",
+    "semantic_hash": "ba09515d8335a8bffade210d4111459e"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_ai_stripped_similarity_checks_20260524.py": {
+    "mtime": 1779622671.9875648,
+    "ast_hash": "a776f2c42723e29d759eb6d58f1657d2",
+    "semantic_hash": "a776f2c42723e29d759eb6d58f1657d2"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_announcement_clean_checks_20260524.py": {
+    "mtime": 1779621353.9476516,
+    "ast_hash": "02cfaf2fba25d64925930e6b386ded59",
+    "semantic_hash": "02cfaf2fba25d64925930e6b386ded59"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_announcement_clean_random_placebo_20260524.py": {
+    "mtime": 1779622913.0803585,
+    "ast_hash": "c039a21ce8a90a1d26aa7103470a9149",
+    "semantic_hash": "c039a21ce8a90a1d26aa7103470a9149"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_csmar_peer_market_reaction_smoke_20260523.py": {
+    "mtime": 1779549394.5242872,
+    "ast_hash": "72f37e69b0c58ab896a131a110f65daf",
+    "semantic_hash": "72f37e69b0c58ab896a131a110f65daf"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_external_ai_active_ai_stripped_checks_20260524.py": {
+    "mtime": 1779673485.987089,
+    "ast_hash": "6c19f426dad7bb41d3cbc838c03f962a",
+    "semantic_hash": "6c19f426dad7bb41d3cbc838c03f962a"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_external_ai_active_checks_20260524.py": {
+    "mtime": 1779672763.309791,
+    "ast_hash": "7eaa640ceec83468b1e3c7010bb8c391",
+    "semantic_hash": "7eaa640ceec83468b1e3c7010bb8c391"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_final_review_checks_20260525.py": {
+    "mtime": 1779696973.2185645,
+    "ast_hash": "88e82513020bbb7b22f7df4130619c4e",
+    "semantic_hash": "88e82513020bbb7b22f7df4130619c4e"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_focal_good_news_pretrend_checks_20260525.py": {
+    "mtime": 1779701021.1724892,
+    "ast_hash": "64ba4cf5dddb21632d376e883a73c156",
+    "semantic_hash": "64ba4cf5dddb21632d376e883a73c156"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_identification_strengthening_checks_20260524.py": {
+    "mtime": 1779676378.4234838,
+    "ast_hash": "b74657f40135c63b7fe2151b2a1c1558",
+    "semantic_hash": "b74657f40135c63b7fe2151b2a1c1558"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_main_effect_full_checks_20260524.py": {
+    "mtime": 1779611958.7832773,
+    "ast_hash": "1b914761df5b7be7c84a57c6ae500865",
+    "semantic_hash": "1b914761df5b7be7c84a57c6ae500865"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_peer_firm_fe_checks_20260524.py": {
+    "mtime": 1779673854.7645748,
+    "ast_hash": "6a5bf2f356242ddd9ec72779d1e648d4",
+    "semantic_hash": "6a5bf2f356242ddd9ec72779d1e648d4"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_pretrend_adjusted_main_20260524.py": {
+    "mtime": 1779676437.2739098,
+    "ast_hash": "be12ec5730ef7e4d7fb2f2e56ef81b57",
+    "semantic_hash": "be12ec5730ef7e4d7fb2f2e56ef81b57"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_simple_main_effect_20260523.py": {
+    "mtime": 1779588149.9743295,
+    "ast_hash": "65dc43cc8fd4fc1be073b402eb058feb",
+    "semantic_hash": "65dc43cc8fd4fc1be073b402eb058feb"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_supplement_market_model_and_placebo_20260524.py": {
+    "mtime": 1779609786.0934045,
+    "ast_hash": "037f8eead77d1204be6bda9d599eef0b",
+    "semantic_hash": "037f8eead77d1204be6bda9d599eef0b"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v6_trading_response_checks_20260524.py": {
+    "mtime": 1779621480.7199204,
+    "ast_hash": "237a8cb7db6c4a1f3dd02ae43c5733e4",
+    "semantic_hash": "237a8cb7db6c4a1f3dd02ae43c5733e4"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v7_ai_supply_chain_disclosure_diagnostic_20260527.py": {
+    "mtime": 1779873886.3172157,
+    "ast_hash": "f589b780f8da3818591ad43f59062e15",
+    "semantic_hash": "f589b780f8da3818591ad43f59062e15"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v7_ai_supply_chain_stacked_did_20260527.py": {
+    "mtime": 1779879368.5828888,
+    "ast_hash": "ca5f38c0f4de9cbb1fc8c54fd2c47f40",
+    "semantic_hash": "ca5f38c0f4de9cbb1fc8c54fd2c47f40"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v7_disclosure_type_horserace_20260527.py": {
+    "mtime": 1779883260.3272784,
+    "ast_hash": "7e3542b48e237ca3660ecd42bb7225f3",
+    "semantic_hash": "7e3542b48e237ca3660ecd42bb7225f3"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v7_event_time_and_peer_validity_20260527.py": {
+    "mtime": 1779883811.7589772,
+    "ast_hash": "0e0d7dae17bfdff85bd8b562eb29d6a8",
+    "semantic_hash": "0e0d7dae17bfdff85bd8b562eb29d6a8"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v8_3_annual_report_claim_pilot.py": {
+    "mtime": 1779011644.2911828,
+    "ast_hash": "abb1525e69b0f827646b174a9a97e532",
+    "semantic_hash": "abb1525e69b0f827646b174a9a97e532"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v8_3_coarse_support_pilot.py": {
+    "mtime": 1779011232.5396962,
+    "ast_hash": "a3ada4a22e65321890cd6538d86020ac",
+    "semantic_hash": "a3ada4a22e65321890cd6538d86020ac"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v8_3_external_evidence_link_pilot.py": {
+    "mtime": 1779160099.3894544,
+    "ast_hash": "31dd987e85732341a0d1877d4fd7df88",
+    "semantic_hash": "31dd987e85732341a0d1877d4fd7df88"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v8_measurement_final_checks_20260527.py": {
+    "mtime": 1779959666.8269877,
+    "ast_hash": "0c1f936965b6055c843298230db72b91",
+    "semantic_hash": "0c1f936965b6055c843298230db72b91"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v9_genai_concreteness_component_screen_20260528.py": {
+    "mtime": 1780021802.5801992,
+    "ast_hash": "c6f836d5b8fa4779eded8b2511892c05",
+    "semantic_hash": "c6f836d5b8fa4779eded8b2511892c05"
+  },
+  "/Users/mac/computerscience/23\u5b9e\u8bc1\u9009\u9898\u63a2\u7d22/T05_GAI_financial_disclosure_market_reaction/scripts/run_v9_genai_concreteness_main_checks_20260528.py": {
+    "mtime": 1780021700.2008605,
+    "ast_hash": "4e283cde3e02b4a315b339380854d271",
+    "semantic_hash": "4e283cde3e02b4a315b339380854d271"
+  }
+}
