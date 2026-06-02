@@ -259,3 +259,68 @@ T05 主线研究 **横向、替代** 关系（产品市场竞品），预测**�
 3. **机制先行**：见 §5。T05 定位 = A 篇的横向竞争镜像，用 B/C 的信息加工通道讲"市场把具体 GenAI 披露读成竞争风险信号"。
 
 **最重要的一句**：Qian 复刻不出来不是你的执行问题，是设计不可移植 + 概念方向相反。继续打 T05 现有主线（v8），把 A 篇降级为引言对照与 category-validation 边界即可。
+
+---
+
+## 7. 三篇机制 + 异质性 + 理论锚 合并总表（2026-06-02 补）
+
+### 7.1 一页总表
+
+| | A: Qian et al. 2025 (POM) | B: Ecker et al. 2026 (JAR) | C: Cheng et al. 2025 (JAE) |
+| --- | --- | --- | --- |
+| 关系/符号 | 纵向供应商，**正** +0.27% | 投资者↔平台，描述性 | 投资者↔ChatGPT，宕机交易量**-5.55%SD** |
+| 识别 | 事件研究+PSM/IV/Heckman/DID | 关联，非因果 | 宕机外生冲击+DID+证伪 |
+| **主机制** | 颠覆式创新关系视角的需求/效率/创新溢出 | ①披露信息量↔GenAI依赖**替代**；②需求跟**媒体中介**不跟原始披露；③答案**镜像**用户语言；④感知有用性(方向准/主观/情绪+，具体/复杂−)；⑤用户学习；⑥使用↑→信息不对称↑ | ①用于**信息加工**(宕机30min后才掉、无补单)；②有新闻时降更多；③知情交易↓(price impact/return variance)；④信息不对称↓(价差)；⑤长期信息含量↑；⑥API宕机→算法交易↓ |
+| **主异质性** | 供应商R&D↑/销售增长↑/距离近/低竞争行业/产品导向 → 反应更正 | 用户:参与度×老练度(高→integration/财报分析)；事件:负面盈余>正面(控媒体后消失)；好消息长/广→替代更强；机构持股→query负相关 | 散户vs非散户(**非散户降更多**)；机构类型(**仅transient显著**)；有新闻时更强 |
+| **理论锚** | Kumaraswamy et al. 2018 关系视角；Cheng-Nault 2012 IT溢出 | Blankespoor et al. 2020(三阶段成本)；Kim-Verrecchia 1994(信息差扩大)；Skinner 1994(好消息可信度)；Umar 2022(认知成本) | Blankespoor et al. 2020；Hirshleifer 2009/deHaan 2017(有限注意)；Acemoglu 2024(任务互补)；Kyle 1985；Glosten-Milgrom 1985；Bai 2016/Kacperczyk 2021(信息含量) |
+| 对 T05 | 横向竞争**镜像**(foil) + category-validation 边界 | 中国制度+信息加工**锚**；同构 specificity 度量 | **因果识别范式** + transient机构异质性接口 |
+
+### 7.2 两条贯穿主线
+1. **Blankespoor, deHaan & Marinovic (2020) 信息加工成本框架**（awareness/acquisition/integration）：B、C 共享，统摄 task 分类、替代机制、用户能力异质性。
+2. **Kim & Verrecchia (1994) 信息不对称扩大**：B（使用↑→VPIN↑）与 C（宕机→价差↓，transient 机构最敏感）一致指向——**GenAI 偏向更知情子集，扩大而非缩小信息差**。这正是 T05"AI-active 近邻竞品被更知情投资者先重估"的理论接口。
+
+---
+
+## 8. AJG3+ 相关文献扫描（2026-06-02）
+
+背景：直接搜 "generative AI + stock" 结果少，因为多数仍是 SSRN/arXiv 工作论文，且关键词碎片化（ChatGPT / LLM / AI exposure / firm value 各自命名）。下表区分**已发表 AJG3+** 与**高质量在投 WP**。
+
+### 8.1 已发表在 AJG3+（核心集合，约 6 篇）
+
+| 论文 | 期刊(AJG) | 一句话 | 与 T05 关系 |
+| --- | --- | --- | --- |
+| Eisfeldt, Schubert, Zhang & Taska, *Generative AI and Firm Values* | **Journal of Finance** (4*, forthcoming/已接受；原 NBER WP31222) | 构造劳动力 GenAI 暴露，ChatGPT 发布后 AMH 组合两周 +5%；劳动替代渠道 | firm-level GenAI 暴露与短窗 CAR 的奠基，T05 焦点公司侧参照 |
+| Lopez-Lira & Tang, *Can ChatGPT Forecast Stock Price Movements?* | **Journal of Financial Economics** (4*, forthcoming) | GPT 从新闻标题预测收益，尤其小盘/负面 | GenAI 处理信息→可预测性，机制层面 |
+| Bertomeu, Lin, Liu & Ni, *Impact of GenAI on Information Processing: Ban of ChatGPT in Italy* | **Journal of Accounting and Economics** (4*, 2025, 80(1):101782) | 意大利禁令→分析师 AI 使用↓、预测↓、信息不对称↑ | C 篇的姊妹外生冲击；信息不对称机制 |
+| Cheng, Lin & Zhao, *ChatGPT outages* | **JAE** (4*, 2025) | 见本文 §3 | 因果识别范式 |
+| Ecker, Li, Li & Wu, *User-Platform Interaction Data* | **Journal of Accounting Research** (4*, 2026) | 见本文 §2 | 中国制度+信息加工锚 |
+| Qian, Peng & Li, *GenAI Announcements on Suppliers* | **Production & Operations Management** (4, 2025/26) | 见本文 §1 | 纵向镜像 foil |
+
+### 8.2 高质量在投 WP（大概率落 AJG3+，引用前需查最新状态）
+
+| 论文 | 现状 | 一句话 |
+| --- | --- | --- |
+| Kim, Muhn & Nikolaev, *Bloated Disclosures: Can ChatGPT Help Investors Process Information?* | arXiv 2306.10224 / Chicago Booth | GPT 摘要更短但信息量更高，更能解释市场反应 |
+| Jha, Qian, Weber & Yang, *ChatGPT and Corporate Policies* | NBER WP32161 | 用电话会构造 firm-level ChatGPT 投资分，预测 capex/收益 |
+| Kim, Muhn & Nikolaev, *Financial Statement Analysis with LLMs* | WP | LLM 做财报分析预测盈余方向 |
+
+### 8.3 相关但属"广义 AI"（非 GenAI，仍 AJG4*，对 T05 的 AIActive 有用）
+
+| 论文 | 期刊 | 用处 |
+| --- | --- | --- |
+| Babina, Fedyk, He & Hodson (2024), *Artificial intelligence, firm growth, and product innovation* | **JFE** (4*) | AI 招聘→增长/产品创新；T05 的 AIActivePeer(AI 招聘)度量直接引用 |
+| Eisfeldt & Schubert, *Generative AI and Finance* | **Annual Review of Financial Economics** (3) | 综述，可当文献地图 |
+
+### 8.4 更好的检索词（避免漏检）
+
+```text
+关键词扩展：ChatGPT, large language models, LLM, "generative AI",
+            "AI exposure", "AI adoption", firm value, "information processing",
+            "informed trading", disclosure, analyst forecast
+事件设定：  ChatGPT release / DeepSeek release / ChatGPT outage / Italy ban
+检索源：    SSRN(eLibrary) + NBER + arXiv q-fin + Google Scholar
+注意：      DeepSeek 事件研究目前多见于低档期刊/WP（如 Future Business Journal 非 AJG3），
+            引用需谨慎。
+```
+
+> 结论：**已发表 AJG3+ 的 GenAI×资本市场论文目前就是个位数**，且高度集中在 JAE/JAR/JF/JFE。你"结果不多"的感觉是对的——这反而说明 T05 选题处在一个**尚未拥挤**的窗口。
