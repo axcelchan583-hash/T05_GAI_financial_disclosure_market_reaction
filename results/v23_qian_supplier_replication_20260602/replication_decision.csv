@@ -1,0 +1,2 @@
+﻿main_sample,main_relation,verdict,ar0_signal,car0p1_signal,day_m1_not_significant,reason
+first_valid_events,upstream_supplier,main_effect_not_replicated,False,False,True,"first-event upstream supplier AR0/CAR[0,+1] does not satisfy the pre-specified positive-significance-positive-rate gate"
