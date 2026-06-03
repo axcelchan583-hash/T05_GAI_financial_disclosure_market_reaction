@@ -2,6 +2,17 @@
 
 更新时间：2026-06-01
 
+## Repository Split
+
+本仓库现在只保留 T05 原主线：GenAI 披露具体性、竞品市场重估与同伴扩散机制。
+
+已拆出的两个辅助仓库：
+
+- Qian 供应商复刻：`/Users/mac/computerscience/23实证选题探索/23-T05-qian-supplier-replication-cn`
+- GenAI 资本市场文献精读：`/Users/mac/computerscience/23实证选题探索/23-T05-genai-capital-markets-reading`
+
+巨潮 PDF/text 缓存和 Qian 复刻结果不再放在本仓库内。
+
 ## 2026-06-01 最新识别风险审计
 
 当前项目不能再被表述为“一个显著主效应已经自然成立”。更准确的状态是：
