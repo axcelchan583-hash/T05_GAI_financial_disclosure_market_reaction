@@ -1,6 +1,6 @@
 # T05: 中国上市公司 GenAI 披露、竞品市场重估与同伴扩散机制
 
-更新时间：2026-06-01
+更新时间：2026-06-05
 
 ## Repository Split
 
@@ -12,6 +12,46 @@
 - GenAI 资本市场文献精读：`/Users/mac/computerscience/23实证选题探索/23-T05-genai-capital-markets-reading`
 
 巨潮 PDF/text 缓存和 Qian 复刻结果不再放在本仓库内。
+
+## 2026-06-05 当前工作口径
+
+当前主线从旧的“`Specificity x AIActivePeer` 条件性主效应”调整为：
+
+```text
+焦点公司 GenAI initiative 披露
+-> 产品市场同行短窗口负向异常收益
+-> 竞争暴露度、披露可信度和现金流预期机制
+```
+
+最新入口文档：
+
+```text
+docs/design/14_peer_competition_mechanism_data_plan_20260605.md
+docs/empirical_runs/93_v29_pom_style_peer_results_20260605.md
+docs/empirical_runs/95_v31_pom_analog_cross_section_20260605.md
+```
+
+当前可写证据：
+
+```text
+v29 Table 2:
+    PeerAR[0]  = -0.0025, clustered z = -2.3169
+    PeerAR[+1] = -0.0021, clustered z = -1.9257
+    sample = 2,790 event-peer rows, 316 events, 1,385 peer firms
+
+v31 mechanism:
+    Spec x AIActivePeer on PeerAR[0]     = -0.0018, p = 0.0224
+    Spec x AIActivePeer on PeerCAR[0,+1] = -0.0032, p = 0.0080
+    after POM-analog peer controls
+```
+
+当前最重要的下一步不是继续堆交互项，而是补三类识别防守：
+
+```text
+1. peer 自身 GenAI / 重大公告污染清理；
+2. 焦点-同行镜像：focal CAR 越正，peer CAR 是否越负；
+3. 长窗口 CAR 和分析师预测修正，用来区分现金流预期与注意力轮动。
+```
 
 ## 2026-06-01 最新识别风险审计
 

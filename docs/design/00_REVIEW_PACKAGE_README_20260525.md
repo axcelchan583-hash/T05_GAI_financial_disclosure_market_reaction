@@ -21,6 +21,7 @@ The current paper should be reviewed as a **capital-market revaluation paper**, 
 | `05_design_freeze_20260525.md` | Frozen headline sample, main AIActive definition, Table 2 specification, robustness hierarchy, and claim boundaries. |
 | `06_specificity_validation_codebook_20260525.md` | Human/LLM codebook for validating disclosure specificity. |
 | `07_specificity_validation_execution_plan_20260525.md` | Execution plan for agreement statistics, construct validation, and future-evidence validation. |
+| `14_peer_competition_mechanism_data_plan_20260605.md` | Current 2026-06-05 design update: peer negative event-study main effect, competition mechanism pillars, and data collection priorities. |
 | `../empirical_runs/54_v6_focal_good_news_pretrend_checks_20260525.md` | Focused robustness checks for focal-firm good-news controls and pre-trend-adjusted peer CAR. |
 | `../empirical_runs/55_specificity_validation_sample_20260525.md` | 300-event validation sample construction log. |
 
