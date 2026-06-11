@@ -93,9 +93,11 @@ Main interpretation:
 
 ## Obsidian review handoff
 
-The 118 reviewed cases were written to:
+The 118 reviewed cases were written to the v3.1 Obsidian note, now archived at:
 
-`/Users/mac/Documents/Obsidian Vault/23-5/T05_DS_V4Pro_复核工作台_118_20260610.md`
+`/Users/mac/Documents/Obsidian Vault/23-5/archive/T05_20260612_prior_versions/T05_DS_V4Pro_复核工作台_118_20260610.md`
+
+The active review surface is the v3.2 re-audit note recorded in `114_v51_deepseek_v3_2_reaudit_20260611.md`.
 
 The Obsidian note orders cases as:
 

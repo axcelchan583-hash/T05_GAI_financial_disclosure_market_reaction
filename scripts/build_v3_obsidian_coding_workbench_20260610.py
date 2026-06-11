@@ -299,6 +299,7 @@ def parse_v3_manual_code(raw: str, date: str) -> dict[str, str]:
         "verdict": "",
         "out": "",
         "mode": "",
+        "layer": "",
         "realized": "",
         "event_date": "",
         "evidence": "",
@@ -344,6 +345,8 @@ def parse_v3_manual_code(raw: str, date: str) -> dict[str, str]:
             result["out"] = value
         elif key in {"M", "MODE"}:
             result["mode"] = value
+        elif key in {"L", "LAYER"}:
+            result["layer"] = value
         elif key in {"R", "REALIZED"}:
             result["realized"] = value.replace("r", "").replace("R", "")
         elif key in {"证", "EVIDENCE"}:
@@ -445,6 +448,7 @@ def build_outputs() -> None:
                 "first_event": parsed["first_event"],
                 "out": parsed["out"],
                 "mode": parsed["mode"],
+                "layer": parsed["layer"],
                 "realized": parsed["realized"],
                 "event_date": parsed["event_date"],
                 "evidence": parsed["evidence"],
@@ -522,6 +526,7 @@ def write_coding_csv(rows: list[dict[str, str]]) -> None:
         "first_event",
         "out",
         "mode",
+        "layer",
         "realized",
         "event_date",
         "evidence",
@@ -549,7 +554,18 @@ def write_markdown(rows: list[dict[str, str]], coding_rows: list[dict[str, str]]
         1
         for r in coding_rows
         if clean(r.get("verdict")) == "A"
-        and (not clean(r.get("out")) or not clean(r.get("mode")) or not clean(r.get("evidence")))
+        and (
+            not clean(r.get("out"))
+            or not clean(r.get("mode"))
+            or not clean(r.get("layer"))
+            or not clean(r.get("evidence"))
+        )
+    )
+    incomplete_dfw = sum(
+        1
+        for r in coding_rows
+        if clean(r.get("verdict")) == "D-fw"
+        and (not clean(r.get("layer")) or not clean(r.get("evidence")))
     )
 
     grouped: dict[str, list[dict[str, str]]] = defaultdict(list)
@@ -561,27 +577,27 @@ def write_markdown(rows: list[dict[str, str]], coding_rows: list[dict[str, str]]
         [
             "---",
             "project: T05",
-            "purpose: CNINFO GenAI announcement v3.1 compact human coding workbench",
+            "purpose: CNINFO GenAI announcement v3.1/v3.2 compact human coding workbench",
             "created: 2026-06-10",
-            "design_version: v3.1",
+            "design_version: v3.1+v3.2",
             f"source_csv: \"{SOURCE_CSV}\"",
             f"machine_csv: \"{OUT_MACHINE}\"",
             f"coding_csv: \"{OUT_CODING}\"",
             f"total_rows: {len(rows)}",
             "---",
             "",
-            "# T05 GenAI 公告 PDF 人工审核工作台 v3.1（20260610）",
+            "# T05 GenAI 公告 PDF 人工审核工作台 v3.1+v3.2（20260610）",
             "",
             "这个版本只让人工填一行 `人工码:`。机器预判只是建议，人工可以确认或改判。",
             "",
             "## 快速语法",
             "",
             "```text",
-            "人工码: A | OUT=1 | M=own | 证=公司发布大模型并同步发布商业应用成果 | R=+",
-            "人工码: A | OUT=0 | M=ext | 证=智算中心为AIGC大模型训练推理提供算力支撑 | R=-",
+            "人工码: A | OUT=1 | M=own | L=model | 证=公司发布大模型并同步发布商业应用成果 | R=+",
+            "人工码: A | OUT=1 | M=own | L=compute | 证=智算中心为AIGC大模型训练推理提供算力支撑 | R=-",
             "人工码: B | 线索=年报追溯，查2023年3月新闻",
             "人工码: C",
-            "人工码: D-fw",
+            "人工码: D-fw | L=app | 证=框架协议仅约定探索AIGC应用，费用和具体项目另行协商",
             "人工码: D",
             "人工码: U | 备注=有大模型词但行动方疑似参股公司而非受控子公司",
             "```",
@@ -595,12 +611,15 @@ def write_markdown(rows: list[dict[str, str]], coding_rows: list[dict[str, str]]
             "- `D`：剔除，非有效 GenAI 行动。",
             "- `U`：待定，需要二次核验。",
             "",
-            "A 类才需要填：",
+            "A 类必填：",
             "",
             "- `OUT=1/0`：GenAI 相关产出是否面向外部客户收费或对外服务。不是“有没有竞争威胁”。`CT=1/0` 可写，解析时会并入 `OUT`。",
             "- `M=own/ext`：`own` 是自己发布/上线/备案/部署；`ext` 是合作、投资、收购、算力承诺等借外力。",
+            "- `L=model/app/compute/data`：GenAI 产业链层级。",
             "- `证=`：一句最关键原文。",
             "- `R=+/-`：可选，`+` 为已发布/上线/商业化，`-` 为计划/意向/框架。",
+            "",
+            "`D-fw` 类只需要补 `L=` 和 `证=`，用于之后和 A 类做同一产业链层内的 cheap-talk / placebo 对照。",
             "",
             "## 合作/框架协议规则",
             "",
@@ -628,7 +647,8 @@ def write_markdown(rows: list[dict[str, str]], coding_rows: list[dict[str, str]]
             f"- 总条目：{len(rows)}",
             f"- 已有人工作业码：{len([r for r in coding_rows if clean(r.get('verdict'))])}",
             f"- 待人工填写：{len([r for r in coding_rows if not clean(r.get('verdict'))])}",
-            f"- A 类已填但缺 `OUT/M/证`：{incomplete_a}",
+            f"- A 类已填但缺 `OUT/M/L/证`：{incomplete_a}",
+            f"- D-fw 已填但缺 `L/证`：{incomplete_dfw}",
             "",
             "机器预判分布：",
             "",

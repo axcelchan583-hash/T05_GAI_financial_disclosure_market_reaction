@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run a DeepSeek/SiliconFlow JSONL batch with retries and structured outputs."""
+"""Run a DeepSeek-compatible JSONL batch with retries and structured outputs."""
 
 from __future__ import annotations
 
@@ -11,12 +11,18 @@ import re
 import time
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 
 BASE = Path("/Users/mac/computerscience/23实证选题探索/T05_GAI_financial_disclosure_market_reaction")
 DEFAULT_BATCH_DIR = BASE / "results/v50_deepseek_v3_1_batch100_20260610"
+DEFAULT_PROVIDER = "siliconflow"
 DEFAULT_MODEL = "deepseek-ai/DeepSeek-V4-Pro"
+PROVIDER_ENV = {
+    "siliconflow": ("SILICONFLOW_BASE_URL", "SILICONFLOW_API_KEY"),
+    "deepseek": ("DEEPSEEK_BASE_URL", "DEEPSEEK_API_KEY"),
+}
 
 
 def clean(value: object) -> str:
@@ -37,6 +43,29 @@ def load_cases(input_jsonl: Path, limit: int | None = None) -> list[dict[str, ob
     return cases
 
 
+def load_existing_outputs(out_dir: Path) -> tuple[list[dict[str, object]], list[dict[str, str]], set[str]]:
+    raw_records: list[dict[str, object]] = []
+    parsed_rows: list[dict[str, str]] = []
+    completed: set[str] = set()
+
+    raw_path = out_dir / "siliconflow_raw_outputs.jsonl"
+    if raw_path.exists():
+        with raw_path.open(encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    raw_records.append(json.loads(line))
+
+    parsed_path = out_dir / "siliconflow_parsed_outputs.csv"
+    if parsed_path.exists():
+        with parsed_path.open(newline="", encoding="utf-8-sig") as f:
+            for row in csv.DictReader(f):
+                row = {k: clean(v) for k, v in row.items()}
+                parsed_rows.append(row)
+                if row.get("id") and row.get("model_verdict") and not row.get("parse_error") and not row.get("api_error"):
+                    completed.add(row["id"])
+    return raw_records, parsed_rows, completed
+
+
 def case_id(case: dict[str, object]) -> str:
     user = case.get("user")
     if not isinstance(user, dict):
@@ -47,14 +76,16 @@ def case_id(case: dict[str, object]) -> str:
     return clean(case_obj.get("id"))
 
 
-def call_siliconflow(
+def call_chat_completion(
     case: dict[str, object],
+    provider: str,
     model: str,
     timeout: int,
     use_response_format: bool,
 ) -> dict[str, object]:
-    base_url = os.environ["SILICONFLOW_BASE_URL"].rstrip("/")
-    api_key = os.environ["SILICONFLOW_API_KEY"]
+    base_env, key_env = PROVIDER_ENV[provider]
+    base_url = os.environ[base_env].rstrip("/")
+    api_key = os.environ[key_env]
     payload: dict[str, object] = {
         "model": model,
         "messages": [
@@ -114,6 +145,7 @@ def normalize_result(case: dict[str, object], raw_resp: dict[str, object], err: 
         "model_verdict": clean(parsed.get("verdict")),
         "out": clean(parsed.get("out")),
         "mode": clean(parsed.get("mode")),
+        "layer": clean(parsed.get("layer")),
         "realized": clean(parsed.get("realized")),
         "event_date": clean(parsed.get("event_date")),
         "evidence": clean(parsed.get("evidence")),
@@ -128,6 +160,7 @@ def normalize_result(case: dict[str, object], raw_resp: dict[str, object], err: 
 
 def run_one(
     case: dict[str, object],
+    provider: str,
     model: str,
     timeout: int,
     attempts: int,
@@ -140,7 +173,7 @@ def run_one(
             response: dict[str, object] = {}
             error = ""
             try:
-                response = call_siliconflow(case, model, timeout, response_format)
+                response = call_chat_completion(case, provider, model, timeout, response_format)
             except urllib.error.HTTPError as exc:
                 detail = exc.read().decode("utf-8", errors="ignore")
                 error = f"HTTP {exc.code}: {detail}"
@@ -148,6 +181,7 @@ def run_one(
                     records.append(
                         {
                             "case_id": case_id(case),
+                            "provider": provider,
                             "attempt": attempt,
                             "response_format": response_format,
                             "response": response,
@@ -161,6 +195,7 @@ def run_one(
             records.append(
                 {
                     "case_id": case_id(case),
+                    "provider": provider,
                     "attempt": attempt,
                     "response_format": response_format,
                     "response": response,
@@ -180,10 +215,54 @@ def run_one(
     return records, normalize_result(case, {}, last_error)
 
 
+def run_with_optional_fallback(
+    case: dict[str, object],
+    provider: str,
+    model: str,
+    fallback_provider: str | None,
+    fallback_model: str,
+    timeout: int,
+    attempts: int,
+    retry_sleep: float,
+) -> tuple[str, list[dict[str, object]], dict[str, str], bool]:
+    records, parsed = run_one(case, provider, model, timeout, attempts, retry_sleep)
+    used_fallback = False
+    if parsed["api_error"] and fallback_provider:
+        fallback_records, parsed = run_one(
+            case,
+            fallback_provider,
+            fallback_model,
+            timeout,
+            attempts,
+            retry_sleep,
+        )
+        records.extend(fallback_records)
+        used_fallback = True
+    return case_id(case), records, parsed, used_fallback
+
+
+def usage_totals(raw_records: list[dict[str, object]]) -> dict[str, int]:
+    totals = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+    for record in raw_records:
+        response = record.get("response")
+        if not isinstance(response, dict):
+            continue
+        usage = response.get("usage")
+        if not isinstance(usage, dict):
+            continue
+        for key in totals:
+            try:
+                totals[key] += int(usage.get(key) or 0)
+            except (TypeError, ValueError):
+                continue
+    return totals
+
+
 def write_outputs(
     out_dir: Path,
     raw_records: list[dict[str, object]],
     parsed_rows: list[dict[str, str]],
+    provider: str,
     model: str,
 ) -> None:
     raw_path = out_dir / "siliconflow_raw_outputs.jsonl"
@@ -198,6 +277,7 @@ def write_outputs(
         "model_verdict",
         "out",
         "mode",
+        "layer",
         "realized",
         "event_date",
         "evidence",
@@ -214,29 +294,40 @@ def write_outputs(
         writer.writerows(parsed_rows)
 
     verdict_counts: dict[str, int] = {}
+    layer_counts: dict[str, int] = {}
+    usage = usage_totals(raw_records)
     parse_errors = 0
     api_errors = 0
     for row in parsed_rows:
         verdict = row["model_verdict"] or "missing"
         verdict_counts[verdict] = verdict_counts.get(verdict, 0) + 1
+        layer = row["layer"] or "missing"
+        layer_counts[layer] = layer_counts.get(layer, 0) + 1
         if row["parse_error"]:
             parse_errors += 1
         if row["api_error"]:
             api_errors += 1
 
     lines = [
-        "# SiliconFlow v50 batch run",
+        "# DeepSeek-compatible batch run",
         "",
+        f"provider: `{provider}`",
         f"model: `{model}`",
         f"cases: {len(parsed_rows)}",
         f"parsed_success: {len(parsed_rows) - parse_errors - api_errors}",
         f"parse_errors: {parse_errors}",
         f"api_errors_after_retry: {api_errors}",
+        f"prompt_tokens: {usage['prompt_tokens']}",
+        f"completion_tokens: {usage['completion_tokens']}",
+        f"total_tokens: {usage['total_tokens']}",
         "",
         "verdict_counts:",
     ]
     for verdict, count in sorted(verdict_counts.items()):
         lines.append(f"- `{verdict}`: {count}")
+    lines.extend(["", "layer_counts:"])
+    for layer, count in sorted(layer_counts.items()):
+        lines.append(f"- `{layer}`: {count}")
     lines.extend(
         [
             "",
@@ -252,33 +343,100 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--batch-dir", type=Path, default=DEFAULT_BATCH_DIR)
     parser.add_argument("--input-jsonl", type=Path, default=None)
+    parser.add_argument("--provider", choices=sorted(PROVIDER_ENV), default=os.environ.get("LLM_PROVIDER", DEFAULT_PROVIDER))
     parser.add_argument("--model", default=os.environ.get("SILICONFLOW_MODEL", DEFAULT_MODEL))
+    parser.add_argument("--fallback-provider", choices=sorted(PROVIDER_ENV), default=None)
+    parser.add_argument("--fallback-model", default=os.environ.get("DEEPSEEK_MODEL", "deepseek-chat"))
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--sleep", type=float, default=0.8)
     parser.add_argument("--retry-sleep", type=float, default=2.0)
     parser.add_argument("--attempts", type=int, default=2)
     parser.add_argument("--timeout", type=int, default=240)
     parser.add_argument("--no-incremental-write", action="store_true")
+    parser.add_argument("--restart", action="store_true")
+    parser.add_argument("--workers", type=int, default=1)
     args = parser.parse_args()
 
     batch_dir = args.batch_dir
     input_jsonl = args.input_jsonl or batch_dir / "deepseek_cases.jsonl"
     cases = load_cases(input_jsonl, args.limit)
 
-    raw_records: list[dict[str, object]] = []
-    parsed_rows: list[dict[str, str]] = []
+    if args.restart:
+        raw_records: list[dict[str, object]] = []
+        parsed_rows: list[dict[str, str]] = []
+        completed_ids: set[str] = set()
+    else:
+        raw_records, parsed_rows, completed_ids = load_existing_outputs(batch_dir)
+        if completed_ids:
+            print(f"Resuming: {len(completed_ids)} completed cases already parsed", flush=True)
+    pending_cases: list[tuple[int, dict[str, object]]] = []
     for idx, case in enumerate(cases, 1):
         cid = case_id(case)
-        print(f"[{idx}/{len(cases)}] {cid}", flush=True)
-        records, parsed = run_one(case, args.model, args.timeout, args.attempts, args.retry_sleep)
-        raw_records.extend(records)
-        parsed_rows.append(parsed)
-        if not args.no_incremental_write:
-            write_outputs(batch_dir, raw_records, parsed_rows, args.model)
-        if idx < len(cases):
-            time.sleep(args.sleep)
+        if cid in completed_ids:
+            print(f"[{idx}/{len(cases)}] {cid} skip", flush=True)
+            continue
+        pending_cases.append((idx, case))
 
-    write_outputs(batch_dir, raw_records, parsed_rows, args.model)
+    if args.workers <= 1:
+        for idx, case in pending_cases:
+            cid = case_id(case)
+            print(f"[{idx}/{len(cases)}] {cid}", flush=True)
+            cid, records, parsed, used_fallback = run_with_optional_fallback(
+                case,
+                args.provider,
+                args.model,
+                args.fallback_provider,
+                args.fallback_model,
+                args.timeout,
+                args.attempts,
+                args.retry_sleep,
+            )
+            if used_fallback:
+                print(f"  {cid} fallback -> {args.fallback_provider}", flush=True)
+            raw_records.extend(records)
+            parsed_rows.append(parsed)
+            if not args.no_incremental_write:
+                write_outputs(batch_dir, raw_records, parsed_rows, args.provider, args.model)
+            time.sleep(args.sleep)
+    else:
+        with ThreadPoolExecutor(max_workers=args.workers) as executor:
+            futures = {}
+            for idx, case in pending_cases:
+                cid = case_id(case)
+                print(f"[{idx}/{len(cases)}] {cid} submit", flush=True)
+                fut = executor.submit(
+                    run_with_optional_fallback,
+                    case,
+                    args.provider,
+                    args.model,
+                    args.fallback_provider,
+                    args.fallback_model,
+                    args.timeout,
+                    args.attempts,
+                    args.retry_sleep,
+                )
+                futures[fut] = (idx, cid)
+                if args.sleep:
+                    time.sleep(args.sleep)
+            finished = 0
+            for fut in as_completed(futures):
+                idx, cid = futures[fut]
+                finished += 1
+                try:
+                    cid, records, parsed, used_fallback = fut.result()
+                except Exception as exc:
+                    records = []
+                    parsed = normalize_result({"user": {"case": {"id": cid}}}, {}, str(exc))
+                    used_fallback = False
+                status = parsed["model_verdict"] or "ERR"
+                suffix = f", fallback={args.fallback_provider}" if used_fallback else ""
+                print(f"[done {finished}/{len(pending_cases)} | original {idx}/{len(cases)}] {cid} {status}{suffix}", flush=True)
+                raw_records.extend(records)
+                parsed_rows.append(parsed)
+                if not args.no_incremental_write:
+                    write_outputs(batch_dir, raw_records, parsed_rows, args.provider, args.model)
+
+    write_outputs(batch_dir, raw_records, parsed_rows, args.provider, args.model)
     print(f"Wrote {batch_dir / 'siliconflow_parsed_outputs.csv'}")
     print(f"Wrote {batch_dir / 'siliconflow_run_summary.md'}")
 

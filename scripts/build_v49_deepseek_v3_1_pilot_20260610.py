@@ -103,8 +103,11 @@ def read_rows() -> list[dict[str, str]]:
 
 
 def read_text(path: str, limit: int = 180000) -> str:
-    p = Path(clean(path))
-    if not p.exists():
+    path = clean(path)
+    if not path:
+        return ""
+    p = Path(path)
+    if not p.exists() or p.is_dir():
         return ""
     return p.read_text(encoding="utf-8", errors="ignore")[:limit]
 
