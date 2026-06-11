@@ -86,7 +86,9 @@ X 的论文表述：**GenAI value-chain initiative disclosure**（产业链宽�
 
 ### 2.4 编码流程
 
-1. DeepSeek V4-Pro 预编码分流（prompt 须含两问亮线、四层定义、2×2 边界）；
+1. DeepSeek V4-Pro 预编码分流，prompt 用 v3.2 版：
+   `docs/prompts/56_genai_announcement_llm_precoding_prompt_v3_2_20260611.md`
+   （含两问亮线、四层定义、2×2 边界、校准判例；输出新增 layer 字段）；
 2. 人工复核优先级：A > B > D-fw > U > D 抽样 5%-10%
    （D 抽样优先抽算力类防漏保、背景段蹭热点类防误收）；
 3. 每约 100 条统计 verdict/OUT/M/L/R 分布；
