@@ -2,12 +2,13 @@
 
 当前 source of truth：
 
+- `11_experiment_design_v4_20260611.md`：**实验设计定稿**（假设、表序 T1–T9、识别防守、执行顺序）；
 - `08_genai_announcement_experiment_design_v3_1_20260610.md`：判定树与编码主规则；
-- `10_genai_coding_amendment_v3_2_20260611.md`：v3.2 增补，X 定为 GenAI 产业链宽口径（model/app/compute/data 四层链内即可进 A，泛 AI 判 D），`L=` 层标签、`D` 与 `D-fw` 的 2×2 边界澄清、宽口径三件实证防守。编码时两份并读。
+- `10_genai_coding_amendment_v3_2_20260611.md`：v3.2 增补，X 定为 GenAI 产业链宽口径（model/app/compute/data 四层链内即可进 A，泛 AI 判 D），`L=` 层标签、`D` 与 `D-fw` 的 2×2 边界澄清、宽口径三件实证防守。编码时 08+10 并读。
 
-理论重构备忘：
+理论备忘：
 
-- `09_深度研究与重构方案.md`：将 v3.1 的 `A` vs `D-fw` 样本重构接到 credible disclosure vs cheap talk 的理论框架；可作为 v4 设计候选，但尚未替代 v3.1 编码口径。
+- `09_深度研究与重构方案.md`：signed detector 理论框架与引用栈（Farrell-Gibbons、Chakraborty-Harbaugh、contagion vs competitive 符号分离），v4 设计的承重理论从此取。
 
 LLM 审核记录：
 
