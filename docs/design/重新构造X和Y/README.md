@@ -3,7 +3,7 @@
 当前 source of truth：
 
 - `08_genai_announcement_experiment_design_v3_1_20260610.md`：判定树与编码主规则；
-- `10_genai_coding_amendment_v3_2_20260611.md`：v3.2 增补，GenAI 认定亮线（产出/标的描述需明确指向大模型/AIGC，背景段提 ChatGPT 不算）、`INFRA` 标签、`D` 与 `D-fw` 的 2×2 边界澄清。编码时两份并读。
+- `10_genai_coding_amendment_v3_2_20260611.md`：v3.2 增补，X 定为 GenAI 产业链宽口径（model/app/compute/data 四层链内即可进 A，泛 AI 判 D），`L=` 层标签、`D` 与 `D-fw` 的 2×2 边界澄清、宽口径三件实证防守。编码时两份并读。
 
 理论重构备忘：
 
