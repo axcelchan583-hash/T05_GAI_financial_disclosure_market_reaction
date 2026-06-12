@@ -3,7 +3,8 @@
 当前 source of truth：
 
 - `11_experiment_design_v4_20260611.md`：**实验设计定稿**（假设、表序 T1–T9、识别防守、执行顺序）；
-- `15_registry_verified_adoption_experiment_design_v2_20260612.md`：**当前执行版**，在 v1 基础上增加 `verified_at_event` / `later_verified` / `never_verified` 信息集分层、选择问题四道防线、Specificity→备案预测、场所选择表、pre-registry 窗口与 censoring 规则；
+- `16_registry_verified_adoption_experiment_design_v3_20260612.md`：**当前执行版**，基于 v69--v72 实跑结果收缩主线：产品级严格 D1 只作验证/审计；firm-level H2（`later_verified` vs `never_verified`）已跑且不支持主张，备案/登记层降为外部验证、样本审计和场所选择材料；
+- `15_registry_verified_adoption_experiment_design_v2_20260612.md`：备案/登记验证增强版 v2，保留作事前设计参考；
 - `14_registry_verified_adoption_experiment_design_20260612.md`：备案/登记验证增强版 v1，保留作上一版参考；
 - `08_genai_announcement_experiment_design_v3_1_20260610.md`：判定树与编码主规则；
 - `10_genai_coding_amendment_v3_2_20260611.md`：v3.2 增补，X 定为 GenAI 产业链宽口径（model/app/compute/data 四层链内即可进 A，泛 AI 判 D），`L=` 层标签、`D` 与 `D-fw` 的 2×2 边界澄清、宽口径三件实证防守。编码时 08+10 并读。
@@ -41,8 +42,9 @@ Obsidian 旧入口归档在：
 当前主线：
 
 1. 先用 v3.3 重构可信、首次、事件日可用的 GenAI disclosure 样本；
-2. 以 v2 为当前执行版，在 v65/v66 官方备案管线基础上，补出 `上市公司 × 备案产品 × 备案/登记日期 × batch_public_date` 的 firm-product 主键表；
-3. 用备案/登记反向验证 disclosure，优先形成 `verified_at_event` / `later_verified` / `never_verified` / `censored` 信息集分层，而不是只做有无备案四格；
-4. 主结果仍看 product-market peers 的短窗负反应，但主规格改为 pooled interaction，分格冻结规格降为稳健性；
-5. `D-fw` 框架协议/cheap talk 样本保留公告日，作为 placebo / contrast group；
-6. 非上市模型只做混杂日历与赛道事前竞争密度，不做供给冲击主设计。
+2. 以 v3 为当前执行版：v67 已补出 457 条上市公司备案/登记 firm-product，v69 已回溯出 10 个严格 D1 firm-date，但 v70 显示旧 A 池产品级匹配只有 11/203，不能当主回归样本；
+3. v72 已试过 firm-level administrative timing 的 `later_verified` vs `never_verified` pooled interaction，all / model_app / own / own_model_app / out1_model_app 口径均不支持“later 更负”；
+4. 主结果应回到 GenAI announcement 本身的 product-market peers 短窗负反应，备案/登记只解释真实落地、披露错配、场所选择和样本审计；
+5. v71 在线巨潮 pilot 对优先补样本 40 条产品查询没有新增命中，后续不把全量在线检索当主扩池路线；
+6. `D-fw` 框架协议/cheap talk 样本保留公告日，作为 placebo / contrast group；
+7. 非上市模型只做混杂日历与赛道事前竞争密度，不做供给冲击主设计。
