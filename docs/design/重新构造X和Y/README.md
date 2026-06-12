@@ -3,6 +3,8 @@
 当前 source of truth：
 
 - `11_experiment_design_v4_20260611.md`：**实验设计定稿**（假设、表序 T1–T9、识别防守、执行顺序）；
+- `15_registry_verified_adoption_experiment_design_v2_20260612.md`：**当前执行版**，在 v1 基础上增加 `verified_at_event` / `later_verified` / `never_verified` 信息集分层、选择问题四道防线、Specificity→备案预测、场所选择表、pre-registry 窗口与 censoring 规则；
+- `14_registry_verified_adoption_experiment_design_20260612.md`：备案/登记验证增强版 v1，保留作上一版参考；
 - `08_genai_announcement_experiment_design_v3_1_20260610.md`：判定树与编码主规则；
 - `10_genai_coding_amendment_v3_2_20260611.md`：v3.2 增补，X 定为 GenAI 产业链宽口径（model/app/compute/data 四层链内即可进 A，泛 AI 判 D），`L=` 层标签、`D` 与 `D-fw` 的 2×2 边界澄清、宽口径三件实证防守。编码时 08+10 并读。
 - `12_genai_coding_amendment_v3_3_20260612.md`：v3.3 小补丁，补充 AI 算力高速互联光模块/光芯片的 `L=compute` 专用性 gate，并规定控股子公司少数股东权益收购默认判 `C`。全量 LLM 预编码按 08+10+12 执行。
@@ -38,8 +40,9 @@ Obsidian 旧入口归档在：
 
 当前主线：
 
-1. 先用 v3.1 重构可信、首次、事件日可用的 GenAI disclosure 样本；
-2. 主结果仍是 product-market competitors 的短窗负反应；
-3. 主机制仍是 `Specificity × AIActivePeer`；
-4. `D-fw` 框架协议/cheap talk 样本保留公告日，作为 placebo / contrast group；
-5. `OUT/M/L/R` 只做辅助异质性和稳健性，不替代 `Specificity`。
+1. 先用 v3.3 重构可信、首次、事件日可用的 GenAI disclosure 样本；
+2. 以 v2 为当前执行版，在 v65/v66 官方备案管线基础上，补出 `上市公司 × 备案产品 × 备案/登记日期 × batch_public_date` 的 firm-product 主键表；
+3. 用备案/登记反向验证 disclosure，优先形成 `verified_at_event` / `later_verified` / `never_verified` / `censored` 信息集分层，而不是只做有无备案四格；
+4. 主结果仍看 product-market peers 的短窗负反应，但主规格改为 pooled interaction，分格冻结规格降为稳健性；
+5. `D-fw` 框架协议/cheap talk 样本保留公告日，作为 placebo / contrast group；
+6. 非上市模型只做混杂日历与赛道事前竞争密度，不做供给冲击主设计。
