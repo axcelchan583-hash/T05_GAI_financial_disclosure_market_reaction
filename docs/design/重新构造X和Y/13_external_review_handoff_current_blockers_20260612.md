@@ -2,7 +2,7 @@
 
 Date: 2026-06-12
 
-This note is for an independent review by Claude / ChatGPT Pro. Please do not assume the current direction is correct. The goal is to diagnose whether the research design can be rescued, and if yes, what the treatment definition and main empirical claim should be.
+This note is for an independent review by Claude / ChatGPT Pro. The project is not being archived. Please assume the topic must be rescued, and focus on data processing, sample construction, treatment selection, and the most defensible empirical framing.
 
 ## Repository
 
@@ -199,6 +199,35 @@ Potential exclusions:
 
 Expected benefit: this may retain a usable sample size, likely larger than 61 but cleaner than 203, while matching POM-style announcement/disclosure design better than strict launch.
 
+## Data-Processing Decisions To Prioritize
+
+Independent reviewers should focus on the data pipeline, not on abandoning the idea:
+
+1. Retrieval universe:
+   - Should we start from the current v56 A sample, the older 363 events, or rebuild from the 111k CNINFO announcement universe?
+   - What recall keywords or title/body search rules should define the candidate pool before LLM coding?
+
+2. Event de-duplication:
+   - Should the main sample be every credible event, first event per firm, first event per disclosure type per firm, or strongest event per firm-year?
+   - How should repeated follow-up disclosures be handled?
+
+3. Disclosure-form exclusions:
+   - Which forms should always be excluded from the main sample: annual reports, semiannual reports, board resolutions, issuance plans, feasibility reports, investor minutes, action plans, patents, routine contracts, M&A documents?
+   - Which forms should stay if the GenAI action is concrete enough?
+
+4. Disclosure-type coding:
+   - Which types should form the main treatment?
+   - Which types should be mechanism or robustness groups only?
+   - Should `realized=+` be a main-sample requirement or only a credibility/mechanism split?
+
+5. Outcome hierarchy:
+   - Should the main Y be product-market peer CAR, focal-firm CAR, peer-minus-focal, downstream-customer CAR, or a family of spillover outcomes?
+   - If focal and peer are both negative, what comparison best identifies a competitive or revaluation mechanism?
+
+6. First rerun:
+   - Propose one exact sample construction rule that is neither the broad 203-event A sample nor the 10-event strict launch sample.
+   - Specify the first empirical table to rerun and what result would count as diagnostic.
+
 ## Questions For Independent Reviewers
 
 1. Should the paper's X be `credible GenAI disclosure`, `credible GenAI corporate action disclosure`, or `GenAI launch/adoption announcement`?
@@ -211,7 +240,7 @@ Expected benefit: this may retain a usable sample size, likely larger than 61 bu
 3. Should product-peer CAR remain the main Y, or should focal-firm CAR / peer-minus-focal / downstream-customer CAR become the main Y?
 4. Is the broad A sample defensible if we explicitly frame the paper as disclosure-driven market reassessment rather than actual technology adoption?
 5. What exact filtering rule would best approximate POM's announcement sample while avoiding our strict-launch sample collapse?
-6. Is this project still publishable, or should it be archived / reframed into a narrower descriptive paper?
+6. Under the assumption that the topic must be rescued, what is the minimum viable data reconstruction plan, including retrieval scope, exclusion rules, disclosure-type coding, main sample, robustness samples, and the first table that should be rerun?
 
 ## Recommended Files To Read First
 
